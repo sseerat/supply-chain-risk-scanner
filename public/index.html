@@ -4,158 +4,484 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Supply-Chain Risk Scanner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --bg: #0f1115;
-    --panel: #171a21;
-    --border: #2a2e38;
-    --text: #e6e8ee;
-    --dim: #8a8f9c;
-    --accent: #5b8def;
-    --low: #3fb950;
-    --medium: #d29922;
-    --high: #f85149;
+    --bg: #08090b;
+    --bg-glow: radial-gradient(720px 380px at 12% -10%, rgba(94,124,255,0.16), transparent 60%),
+               radial-gradient(560px 360px at 100% 0%, rgba(94,124,255,0.08), transparent 55%);
+    --panel: #111318;
+    --panel-2: #0b0c10;
+    --border: rgba(255,255,255,0.08);
+    --border-strong: rgba(255,255,255,0.14);
+    --text: #eef0f4;
+    --dim: #8b8fa3;
+    --dim-2: #5b5f72;
+    --accent: #5e7cff;
+    --accent-bright: #7d97ff;
+    --accent-glow: rgba(94,124,255,0.35);
+    --low: #3fb95f;
+    --low-bg: rgba(63,185,95,0.12);
+    --medium: #e3a72e;
+    --medium-bg: rgba(227,167,46,0.12);
+    --high: #f2564a;
+    --high-bg: rgba(242,86,74,0.14);
+    --radius-lg: 16px;
+    --radius-md: 10px;
+    --radius-sm: 7px;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
+
   * { box-sizing: border-box; }
+
+  html { color-scheme: dark; }
+
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: var(--sans);
     background: var(--bg);
+    background-image: var(--bg-glow);
+    background-repeat: no-repeat;
     color: var(--text);
-    line-height: 1.5;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
   }
+
   main {
-    max-width: 980px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 32px 20px 80px;
+    padding: 64px 24px 96px;
   }
-  h1 { font-size: 1.5rem; margin-bottom: 4px; }
-  p.subtitle { color: var(--dim); margin-top: 0; margin-bottom: 28px; }
-  .panel {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 20px;
+
+  /* ---------- Header ---------- */
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 12px 5px 9px;
+    border-radius: 999px;
+    background: rgba(94,124,255,0.1);
+    border: 1px solid rgba(94,124,255,0.28);
+    color: var(--accent-bright);
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
     margin-bottom: 20px;
   }
-  label { display: block; font-size: 0.85rem; color: var(--dim); margin-bottom: 6px; }
-  textarea {
-    width: 100%;
-    min-height: 220px;
-    background: #0b0d11;
-    color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 12px;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.85rem;
-    resize: vertical;
+  .eyebrow .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--low);
+    box-shadow: 0 0 0 3px rgba(63,185,95,0.22);
   }
-  .controls {
+
+  h1 {
+    font-size: 2.1rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-top: 14px;
+  }
+  h1 svg { flex: none; }
+
+  p.subtitle {
+    color: var(--dim);
+    font-size: 1.02rem;
+    max-width: 60ch;
+    margin: 0 0 40px;
+  }
+  p.subtitle code {
+    font-family: var(--mono);
+    background: rgba(255,255,255,0.06);
+    padding: 1px 6px;
+    border-radius: 5px;
+    font-size: 0.88em;
+    color: var(--text);
+  }
+
+  /* ---------- Panels ---------- */
+
+  .panel {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+    background-color: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.03) inset, 0 20px 40px -24px rgba(0,0,0,0.6);
+  }
+
+  .panel-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
     flex-wrap: wrap;
   }
-  input[type="file"] { color: var(--dim); font-size: 0.85rem; }
-  button {
-    background: var(--accent);
-    color: white;
+
+  label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--dim);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .sample-link {
+    background: none;
     border: none;
-    border-radius: 6px;
-    padding: 10px 20px;
-    font-size: 0.95rem;
+    color: var(--accent-bright);
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+  .sample-link:hover { color: #fff; text-decoration: underline; }
+
+  textarea {
+    width: 100%;
+    min-height: 230px;
+    background: var(--panel-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    font-family: var(--mono);
+    font-size: 0.86rem;
+    line-height: 1.6;
+    resize: vertical;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  textarea::placeholder { color: var(--dim-2); }
+  textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-glow), 0 0 0 4px transparent;
+    box-shadow: 0 0 0 4px rgba(94,124,255,0.16);
+  }
+
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+
+  button#scanBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: linear-gradient(180deg, var(--accent-bright), var(--accent));
+    color: white;
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: var(--radius-sm);
+    padding: 11px 22px;
+    font-family: var(--sans);
+    font-size: 0.92rem;
     font-weight: 600;
     cursor: pointer;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.25) inset, 0 8px 20px -8px var(--accent-glow);
+    transition: filter 0.15s ease, transform 0.08s ease, box-shadow 0.15s ease;
   }
-  button:disabled { opacity: 0.6; cursor: not-allowed; }
-  button:hover:not(:disabled) { filter: brightness(1.1); }
-  .status { color: var(--dim); font-size: 0.85rem; }
+  button#scanBtn:hover:not(:disabled) {
+    filter: brightness(1.08);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset, 0 10px 26px -8px var(--accent-glow);
+  }
+  button#scanBtn:active:not(:disabled) { transform: translateY(1px) scale(0.99); }
+  button#scanBtn:disabled { opacity: 0.55; cursor: not-allowed; box-shadow: none; }
+
+  .spinner {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.35);
+    border-top-color: #fff;
+    animation: spin 0.7s linear infinite;
+    display: none;
+  }
+  .spinner.on { display: inline-block; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* custom file input */
+  .file-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-strong);
+    background: rgba(255,255,255,0.03);
+    color: var(--dim);
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  }
+  .file-btn:hover { border-color: var(--accent); color: var(--text); background: rgba(94,124,255,0.06); }
+  .file-btn input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .file-name { color: var(--dim-2); font-size: 0.82rem; }
+
+  .status {
+    color: var(--dim);
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ---------- Error ---------- */
+
   #error {
     display: none;
-    background: #2a1215;
-    border: 1px solid #5c2327;
-    color: #ffb3b8;
-    border-radius: 6px;
-    padding: 12px 14px;
+    align-items: flex-start;
+    gap: 10px;
+    background: rgba(242,86,74,0.08);
+    border: 1px solid rgba(242,86,74,0.3);
+    color: #ffb3ab;
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
     margin-bottom: 20px;
     font-size: 0.9rem;
   }
-  #summary { margin-bottom: 14px; font-size: 0.95rem; }
-  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
-  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
-  th { color: var(--dim); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
-  td.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-  .badge {
-    display: inline-block;
-    padding: 2px 10px;
-    border-radius: 12px;
-    font-size: 0.78rem;
-    font-weight: 700;
+  #error svg { flex: none; margin-top: 2px; color: var(--high); }
+
+  /* ---------- Results ---------- */
+
+  .summary-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 16px;
   }
-  .badge-low { background: rgba(63,185,80,0.15); color: var(--low); }
-  .badge-medium { background: rgba(210,153,34,0.15); color: var(--medium); }
-  .badge-high { background: rgba(248,81,73,0.18); color: var(--high); }
-  .signals { color: var(--dim); }
-  .signals .row { margin-bottom: 2px; }
-  .dim { color: var(--dim); }
-  footer { color: var(--dim); font-size: 0.8rem; margin-top: 30px; }
-  footer a { color: var(--accent); }
-  .legend { color: var(--dim); font-size: 0.82rem; margin-top: 4px; }
+
+  .stat-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+  .stat-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 13px;
+    border-radius: 999px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    border: 1px solid transparent;
+  }
+  .stat-pill .n { font-variant-numeric: tabular-nums; }
+  .stat-pill.high { background: var(--high-bg); color: var(--high); border-color: rgba(242,86,74,0.3); }
+  .stat-pill.medium { background: var(--medium-bg); color: var(--medium); border-color: rgba(227,167,46,0.3); }
+  .stat-pill.low { background: var(--low-bg); color: var(--low); border-color: rgba(63,185,95,0.3); }
+  .stat-pill.total { background: rgba(255,255,255,0.05); color: var(--dim); border-color: var(--border); }
+
+  .legend {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    color: var(--dim);
+    font-size: 0.82rem;
+    line-height: 1.5;
+    padding: 12px 14px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    margin-bottom: 18px;
+  }
+  .legend svg { flex: none; margin-top: 2px; color: var(--dim-2); }
+
+  .table-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 0.87rem; min-width: 620px; }
+  thead th {
+    position: sticky;
+    top: 0;
+    background: var(--panel-2);
+    text-align: left;
+    padding: 11px 14px;
+    color: var(--dim);
+    font-weight: 600;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid var(--border);
+  }
+  tbody td {
+    text-align: left;
+    padding: 13px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr { transition: background 0.12s ease; }
+  tbody tr:hover { background: rgba(255,255,255,0.025); }
+
+  td.mono {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+  }
+  td.name-cell .pkg {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    padding: 2px 7px;
+    border-radius: 5px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 11px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    border: 1px solid transparent;
+  }
+  .badge::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+  .badge-low { background: var(--low-bg); color: var(--low); border-color: rgba(63,185,95,0.25); }
+  .badge-low::before { background: var(--low); }
+  .badge-medium { background: var(--medium-bg); color: var(--medium); border-color: rgba(227,167,46,0.25); }
+  .badge-medium::before { background: var(--medium); }
+  .badge-high { background: var(--high-bg); color: var(--high); border-color: rgba(242,86,74,0.28); }
+  .badge-high::before { background: var(--high); }
+
+  .signals { color: var(--dim); font-size: 0.84rem; }
+  .signals .row { margin-bottom: 4px; }
+  .signals .row:last-child { margin-bottom: 0; }
+  .dim { color: var(--dim-2); }
+
+  #results { animation: rise 0.25s ease; }
+  @keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    color: var(--dim-2);
+    font-size: 0.82rem;
+    margin-top: 44px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+  }
+  footer a { color: var(--dim); text-decoration: none; border-bottom: 1px solid var(--border-strong); transition: color 0.15s ease, border-color 0.15s ease; }
+  footer a:hover { color: var(--accent-bright); border-color: var(--accent); }
+  footer .sep { color: var(--dim-2); }
+
+  @media (max-width: 560px) {
+    main { padding: 40px 16px 72px; }
+    h1 { font-size: 1.6rem; }
+    .panel { padding: 18px; }
+  }
 </style>
 </head>
 <body>
 <main>
-  <h1>Supply-Chain Risk Scanner</h1>
+  <div class="eyebrow"><span class="dot"></span> npm · supply-chain security</div>
+
+  <h1>
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2L4 5.5V11C4 16.2 7.4 20.9 12 22C16.6 20.9 20 16.2 20 11V5.5L12 2Z" stroke="url(#g)" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M9 12.2L11 14.2L15.5 9.5" stroke="url(#g)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <defs>
+        <linearGradient id="g" x1="4" y1="2" x2="20" y2="22" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#7d97ff"/>
+          <stop offset="1" stop-color="#5e7cff"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    Supply-Chain Risk Scanner
+  </h1>
   <p class="subtitle">
-    Paste or upload a <code>package.json</code>. Checks direct dependencies
-    for typosquatting, malicious install scripts, and maintainer/version
-    anomalies against live npm registry data.
+    Paste or upload a <code>package.json</code>. Checks every direct
+    dependency for typosquatting, malicious install scripts, and
+    maintainer/version anomalies against live npm registry data.
   </p>
 
   <div class="panel">
-    <label for="input">package.json contents</label>
+    <div class="panel-head">
+      <label for="input">package.json contents</label>
+      <button type="button" class="sample-link" id="sampleBtn">Try an example →</button>
+    </div>
     <textarea id="input" spellcheck="false" placeholder='{
   "dependencies": {
     "express": "^4.18.0"
   }
 }'></textarea>
     <div class="controls">
-      <button id="scanBtn">Scan</button>
-      <input type="file" id="fileInput" accept="application/json,.json" />
+      <button id="scanBtn" type="button">
+        <span class="spinner" id="spinner"></span>
+        <span id="scanBtnLabel">Scan</span>
+      </button>
+      <label class="file-btn">
+        📄 <span id="fileLabel">Upload file</span>
+        <input type="file" id="fileInput" accept="application/json,.json" />
+      </label>
       <span class="status" id="status"></span>
     </div>
   </div>
 
-  <div id="error"></div>
+  <div id="error">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 8v5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="16" r="1" fill="currentColor"/></svg>
+    <span id="errorText"></span>
+  </div>
 
   <div class="panel" id="results" hidden>
-    <div id="summary"></div>
-    <div class="legend">
-      High means 2+ independent signal types landed on the same package —
-      not "likely malicious." Treat every score as worth a closer look,
-      not a verdict.
+    <div class="summary-row">
+      <div class="stat-pills" id="statPills"></div>
     </div>
-    <table style="margin-top:14px;">
-      <thead>
-        <tr>
-          <th>Package</th>
-          <th>Version Range</th>
-          <th>Type</th>
-          <th>Score</th>
-          <th>Signals</th>
-        </tr>
-      </thead>
-      <tbody id="tbody"></tbody>
-    </table>
+    <div class="legend">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 8v5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="16" r="1" fill="currentColor"/></svg>
+      <span>High means 2+ independent signal types landed on the same package — not "likely malicious." Treat every score as worth a closer look, not a verdict.</span>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Package</th>
+            <th>Version Range</th>
+            <th>Type</th>
+            <th>Score</th>
+            <th>Signals</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
   </div>
 
   <footer>
-    Heuristic report only — nothing here is proof of malicious intent.
-    Source: <a href="https://github.com/sseerat/supply-chain-risk-scanner" target="_blank" rel="noopener">GitHub</a>.
-    Nothing you paste is stored — each scan is a stateless request to the
-    npm registry.
+    <span>Heuristic report only — nothing here is proof of malicious intent.</span>
+    <span class="sep">·</span>
+    <a href="https://github.com/sseerat/supply-chain-risk-scanner" target="_blank" rel="noopener">Source on GitHub</a>
+    <span class="sep">·</span>
+    <span>Nothing you paste is stored — each scan is a stateless request to the npm registry.</span>
   </footer>
 </main>
 
@@ -163,16 +489,38 @@
 (function () {
   const input = document.getElementById("input");
   const fileInput = document.getElementById("fileInput");
+  const fileLabel = document.getElementById("fileLabel");
   const scanBtn = document.getElementById("scanBtn");
+  const scanBtnLabel = document.getElementById("scanBtnLabel");
+  const spinner = document.getElementById("spinner");
+  const sampleBtn = document.getElementById("sampleBtn");
   const statusEl = document.getElementById("status");
   const errorEl = document.getElementById("error");
+  const errorTextEl = document.getElementById("errorText");
   const resultsEl = document.getElementById("results");
-  const summaryEl = document.getElementById("summary");
+  const statPillsEl = document.getElementById("statPills");
   const tbody = document.getElementById("tbody");
+
+  const SAMPLE = {
+    name: "example",
+    version: "1.0.0",
+    description: "event-stream's 2018 maintainer-hijack incident, pinned at the exact malicious version — a real historical example.",
+    dependencies: {
+      "event-stream": "3.3.5",
+      "commander": "^12.1.0",
+      "debug": "^4.3.7",
+    },
+  };
+
+  sampleBtn.addEventListener("click", () => {
+    input.value = JSON.stringify(SAMPLE, null, 2);
+    hideError();
+  });
 
   fileInput.addEventListener("change", async () => {
     const file = fileInput.files[0];
     if (!file) return;
+    fileLabel.textContent = file.name;
     input.value = await file.text();
   });
 
@@ -231,28 +579,33 @@
 
   function setLoading(loading) {
     scanBtn.disabled = loading;
-    scanBtn.textContent = loading ? "Scanning..." : "Scan";
+    scanBtnLabel.textContent = loading ? "Scanning…" : "Scan";
+    spinner.classList.toggle("on", loading);
     statusEl.textContent = loading
-      ? "Checking typosquats, install scripts, and version/maintainer history via the npm registry — this can take a few seconds."
+      ? "Checking typosquats, install scripts, and version/maintainer history — this can take a few seconds."
       : "";
   }
 
   function showError(message) {
-    errorEl.textContent = message;
-    errorEl.style.display = "block";
+    errorTextEl.textContent = message;
+    errorEl.style.display = "flex";
   }
 
   function hideError() {
     errorEl.style.display = "none";
-    errorEl.textContent = "";
+    errorTextEl.textContent = "";
   }
 
   function renderResults(results) {
     tbody.innerHTML = "";
+    statPillsEl.innerHTML = "";
 
     if (results.length === 0) {
-      summaryEl.textContent = "No dependencies found.";
       resultsEl.hidden = false;
+      const pill = document.createElement("span");
+      pill.className = "stat-pill total";
+      pill.textContent = "No dependencies found";
+      statPillsEl.appendChild(pill);
       return;
     }
 
@@ -262,18 +615,37 @@
       tbody.appendChild(renderRow(r));
     }
 
-    summaryEl.textContent =
-      `${counts.High} High, ${counts.Medium} Medium, ${counts.Low} Low ` +
-      `(of ${results.length} direct dependencies)`;
+    statPillsEl.appendChild(makePill("high", counts.High, "High"));
+    statPillsEl.appendChild(makePill("medium", counts.Medium, "Medium"));
+    statPillsEl.appendChild(makePill("low", counts.Low, "Low"));
+    const total = document.createElement("span");
+    total.className = "stat-pill total";
+    total.textContent = `${results.length} dependencies scanned`;
+    statPillsEl.appendChild(total);
+
     resultsEl.hidden = false;
+  }
+
+  function makePill(cls, count, label) {
+    const pill = document.createElement("span");
+    pill.className = "stat-pill " + cls;
+    const n = document.createElement("span");
+    n.className = "n";
+    n.textContent = count;
+    pill.appendChild(n);
+    pill.appendChild(document.createTextNode(" " + label));
+    return pill;
   }
 
   function renderRow(r) {
     const tr = document.createElement("tr");
 
     const nameTd = document.createElement("td");
-    nameTd.className = "mono";
-    nameTd.textContent = r.name;
+    nameTd.className = "mono name-cell";
+    const pkgSpan = document.createElement("span");
+    pkgSpan.className = "pkg";
+    pkgSpan.textContent = r.name;
+    nameTd.appendChild(pkgSpan);
 
     const rangeTd = document.createElement("td");
     rangeTd.className = "mono";
