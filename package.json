@@ -1,0 +1,23 @@
+{
+  "name": "supply-chain-risk-scanner",
+  "version": "1.0.0",
+  "description": "CLI tool that scans a project's package.json for supply-chain attack risk signals",
+  "type": "module",
+  "main": "src/cli.js",
+  "bin": {
+    "scanner": "./bin/scanner.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "npm",
+    "security",
+    "supply-chain"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^15.0.0"
+  }
+}
