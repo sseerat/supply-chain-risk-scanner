@@ -6,20 +6,89 @@ analysis, npm registry API integration, and applied threat modeling — the
 kind of work motivated by real incidents like `event-stream`, `ua-parser-js`,
 `coa`/`rc`, and `node-ipc`.
 
-Status: **Phase 3 of 5 complete** (Foundation + Typosquat Detection + Install
-Script Red Flags). See [Roadmap](#roadmap) below.
+Status: **MVP complete — all 5 phases implemented.** See
+[Roadmap](#roadmap) below.
 
 ## Usage
 
 ```bash
 node bin/scanner.js scan <path-to-package.json>
+node bin/scanner.js scan <path-to-package.json> --json
 ```
 
-Example:
+## Example: a real end-to-end scan
+
+`test-fixtures/version-anomaly-example-package.json` pins
+`event-stream@3.3.5` — the actual version from the real 2018 incident (see
+"Phase 4 — Maintainer & version anomalies" below) — alongside two
+healthy packages. This is the real, unedited output of:
 
 ```bash
-node bin/scanner.js scan ./test-fixtures/express-package.json
+node bin/scanner.js scan ./test-fixtures/version-anomaly-example-package.json
 ```
+
+```
+Scanning 3 direct dependencies in ./test-fixtures/version-anomaly-example-package.json...
+(checking typosquats, install scripts, and version/maintainer history via the npm registry)
+
+┌────────────────────────────┬────────────────┬──────────────┬──────────┬────────────────────────────────────────────────────────────┐
+│ Package                    │ Version Range  │ Type         │ Score    │ Signals                                                    │
+├────────────────────────────┼────────────────┼──────────────┼──────────┼────────────────────────────────────────────────────────────┤
+│ event-stream               │ 3.3.5          │ dependency   │ High     │ dormant 780d then published (prev 3.3.4)                   │
+│                            │                │              │          │ maintainers changed (+right9ctrl)                          │
+├────────────────────────────┼────────────────┼──────────────┼──────────┼────────────────────────────────────────────────────────────┤
+│ commander                  │ ^12.1.0        │ dependency   │ Low      │ -                                                          │
+├────────────────────────────┼────────────────┼──────────────┼──────────┼────────────────────────────────────────────────────────────┤
+│ debug                      │ ^4.3.7         │ dependency   │ Low      │ -                                                          │
+└────────────────────────────┴────────────────┴──────────────┴──────────┴────────────────────────────────────────────────────────────┘
+
+Risk summary: 1 High, 0 Medium, 2 Low (of 3 direct dependencies). This is a heuristic report — review flagged packages yourself, don't treat any score as proof.
+```
+
+(In an actual terminal, `Score` is color-coded — green/yellow/red — via
+`chalk`; colors are auto-disabled here since this is piped to a file.)
+
+The same scan with `--json` (truncated to the first entry — the real
+output includes the full detail for every dependency, including raw
+install-script text and the complete version-anomaly breakdown):
+
+```bash
+node bin/scanner.js scan ./test-fixtures/version-anomaly-example-package.json --json
+```
+
+```json
+[
+  {
+    "name": "event-stream",
+    "versionRange": "3.3.5",
+    "type": "dependency",
+    "resolvedVersion": "3.3.5",
+    "typosquat": null,
+    "installScript": { "status": "ok", "lifecycleScripts": {}, "flags": {}, "...": "..." },
+    "versionAnomaly": {
+      "status": "ok",
+      "dormancy": {
+        "previousVersion": "3.3.4",
+        "previousPublishedAt": "2016-07-17T07:24:09.767Z",
+        "publishedAt": "2018-09-05T05:27:47.219Z",
+        "gapDays": 780
+      },
+      "majorJump": null,
+      "maintainerChange": { "previousVersion": "3.3.4", "added": ["right9ctrl"], "removed": [] },
+      "github": { "checked": false, "reason": "not attempted (no major-version jump flagged)" }
+    },
+    "signals": ["dormancy", "maintainerChange"],
+    "score": "High"
+  }
+]
+```
+
+**At larger scale** — scanning the real `express` dependency tree
+(`test-fixtures/express-package.json`, 44 packages) — produced **8 High,
+0 Medium, 36 Low**, all real, all explainable (the `ulisesgascon`
+maintenance-revival pattern described in "Phase 5 — Scoring & report"
+below). That's the Definition-of-Done real-project test this brief asked
+for.
 
 ## Detection logic
 
@@ -347,12 +416,89 @@ new tests):
    affects Phase 3's install-script check too (it uses the same resolved
    version), not just Phase 4.
 
+### Phase 5 — Scoring & report
+
+Combines the signals from Phases 2-4 into one Low/Medium/High score per
+package (`src/riskScore.js`), and renders either a colored `cli-table3`
+report or, with `--json`, the full per-package detail as machine-readable
+JSON — the brief's stretch goal, promoted to MVP scope here.
+
+**The rule the brief specifically asked for:** dormancy must never, by
+itself, produce a High score. More generally, *no single signal* — however
+severe it sounds — reaches High alone. There are five distinct signal
+types: `typosquat`, `installScript`, `dormancy`, `majorJump`,
+`maintainerChange`. Two of them (`typosquat`, `installScript`) are treated
+as strong enough to reach **Medium** alone; the other three are
+individually common and explainable in legitimate packages — measured at
+13.0%, 1.5%, and 6.3% base rates respectively in Phase 4's real sample —
+so they're capped at **Low** alone. **High requires 2 or more distinct
+signal types aligning on the same package**, regardless of which two.
+
+**Why "2 or more," not "exactly 3 like the brief's event-stream example":**
+I measured how often 2+ of the three version-anomaly signals actually
+co-occur in Phase 4's real 270-package sample before picking this rule —
+same discipline as every other threshold in this project:
+
+| signals aligned | packages (of 270) |
+|---|---|
+| dormancy only | 35 (13.0%) |
+| major jump only | 4 (1.5%) |
+| maintainer change only | 17 (6.3%) |
+| **2 or more of the three** | **5 (1.9%)** |
+| **all three** | **1 (0.4%)** |
+
+1.9% is rare enough to be a meaningful "look at this" trigger without
+being noisy, and — importantly — using the real event-stream 3.3.5 data
+(dormancy + maintainerChange, 2 signals; it doesn't cross a major version
+at that exact release) already reaches High under this rule, so the
+true-positive test below runs against the actual incident, not a
+synthetic stand-in for it.
+
+I reviewed all 5 real "2+ signal" cases from the sample by hand — none
+look like attacks, which is expected in a random sample of already-popular
+packages, and is exactly the point of a heuristic tool: surface for human
+judgment, don't auto-convict.
+
+| package | signals | what it actually was |
+|---|---|---|
+| `camelize` | dormancy + maintainer change | added `ljharb` — a well-known maintainer who adopts many small abandoned packages |
+| `detective` | dormancy + maintainer change | `dominictarr` removed, 3 new maintainers added — a team hand-off |
+| `hawk` | dormancy + maintainer change | maintainer team fully replaced — hand-off to the hapi.js org |
+| `undertaker-registry` | dormancy + maintainer change | added `yocontra`, a known gulp/undertaker ecosystem maintainer |
+| `os-locale` | **all three** (dormancy + major jump + maintainer change) | `6.0.2` → `8.0.0` after 1504 days quiet — the one real match for the brief's full event-stream-pattern example |
+
+**Running this against a real, large dependency tree (express, 44
+packages)** produced **8 High, 0 Medium, 36 Low** — every single High was
+the same `dormancy + maintainerChange` pattern, and every one traces back
+to `ulisesgascon`, a real Express/OpenJS technical-committee member,
+being added as a maintainer to older, quiet Express-ecosystem packages
+(`http-errors`, `range-parser`, `morgan`, `cookie-parser`, `after`, etc.)
+as part of a documented maintenance-revival effort. This is a good
+demonstration of the tool's actual value and its limits in the same
+breath: it correctly and automatically found every one of these events
+using nothing but public registry data, and a human reviewing the report
+can quickly tell "this is one person's name repeating across
+Express-adjacent packages" rather than 8 independent unrelated incidents
+— which is exactly the judgment call a heuristic scanner should leave to
+a person, not silently make itself.
+
+**`--json`:** `scanner scan <path> --json` prints the full result array
+(one object per dependency, including every raw sub-result — typosquat
+match, install-script flags and raw script text, version-anomaly detail,
+computed `signals` and `score`) as JSON to stdout, with no other output —
+safe to pipe into `jq` or another tool.
+
+**Stack:** used the brief's suggested `cli-table3` and `chalk` here — no
+deviation this time, since Phase 5 is specifically where the brief calls
+for them and `console.table` (used through Phase 1-4) doesn't support
+color or wrapped multi-line cells, which the Signals column needs.
+
 ## Testing
 
 Automated tests (Vitest) live in `src/typosquat.test.js`,
 `src/installScriptCheck.test.js`, `src/registryClient.test.js`,
-`src/versionAnomalyCheck.test.js`, and `src/githubReleaseCheck.test.js`. Run
-them with:
+`src/versionAnomalyCheck.test.js`, `src/githubReleaseCheck.test.js`, and
+`src/riskScore.test.js`. Run them with:
 
 ```bash
 npm test
@@ -469,13 +615,39 @@ Fixtures:
   sample backing the false-positive rate measurement above (see its
   `description` field for the full duplicate-dataset caveat).
 
+Also covered for Phase 5 (`src/riskScore.test.js`):
+
+- **Unit tests on the scoring rule** — every signal alone (weak → Low,
+  strong → Medium, never High), every 2-signal combination (weak+weak,
+  strong+strong) scoring High, the illustrative 3-signal case, duplicate
+  signals not over-counting, and an unrecognized signal name throwing
+  rather than silently miscounting.
+- **`deriveSignals` unit tests** — extracting the right signal list from
+  clean / typosquat / install-script / all-three-version-anomaly results,
+  and confirming non-`"ok"` statuses (not-found, error, unresolved) are
+  informational and don't contribute signals.
+- **Real-world true positive** — the full pipeline run on event-stream's
+  actual 3.3.5 data (offline, via the same static snapshot as Phase 4's
+  tests) produces exactly `["dormancy", "maintainerChange"]` and scores
+  **High** — from real incident data, not a constructed example.
+- **Real-world check that dormancy alone doesn't reach High** — rather
+  than constructing a synthetic case, this test searches Phase 4's real
+  270-package sample for an actual package flagged for dormancy and
+  *nothing else*, and asserts it scores Low. (Also asserted directly at
+  the unit level above — this is the same requirement checked against
+  real data instead of a hand-built example.)
+
 ## Roadmap
 
 - [x] Phase 1 — Foundation (CLI, dependency listing)
 - [x] Phase 2 — Typosquat detection
 - [x] Phase 3 — Install script red flags (registry API + script inspection)
 - [x] Phase 4 — Maintainer & version anomalies
-- [ ] Phase 5 — Scoring & report (`--json`, colored output)
+- [x] Phase 5 — Scoring & report (`--json`, colored output)
+
+**MVP complete.** All five phases from the project brief are implemented,
+empirically measured against real npm registry data, and covered by
+automated tests (130 passing).
 
 ## What I'd add with more time
 

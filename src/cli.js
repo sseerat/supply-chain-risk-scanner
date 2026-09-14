@@ -10,10 +10,11 @@ export function run(argv) {
 
   program
     .command("scan")
-    .description("Scan a package.json and list its direct dependencies")
+    .description("Scan a package.json for supply-chain risk signals and print a per-package risk report")
     .argument("<packageJsonPath>", "path to the package.json file to scan")
-    .action(async (packageJsonPath) => {
-      await scanCommand(packageJsonPath);
+    .option("--json", "output machine-readable JSON instead of a table")
+    .action(async (packageJsonPath, options) => {
+      await scanCommand(packageJsonPath, { json: options.json });
     });
 
   program.parse(argv);
