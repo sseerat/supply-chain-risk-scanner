@@ -9,6 +9,9 @@ kind of work motivated by real incidents like `event-stream`, `ua-parser-js`,
 Status: **MVP complete — all 5 phases implemented.** See
 [Roadmap](#roadmap) below.
 
+**Live demo:** [supply-chain-risk-scanner-six.vercel.app](https://supply-chain-risk-scanner-six.vercel.app)
+— paste or upload a `package.json`, no install required.
+
 ## Usage
 
 ```bash
