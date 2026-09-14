@@ -16,6 +16,72 @@ node bin/scanner.js scan <path-to-package.json>
 node bin/scanner.js scan <path-to-package.json> --json
 ```
 
+### Web version
+
+The same scan is also available as a small web app — paste or upload a
+`package.json`, get back the same risk report the CLI produces, no
+install required. `api/scan.js` is a Vercel serverless function that
+imports `runScan()` from `src/scan.js` directly (the same function the
+CLI calls) — there is exactly one implementation of the detection
+pipeline, not a duplicated web version. `public/index.html` is a plain
+HTML/CSS/JS single page (no framework, no build step) that POSTs to it.
+
+Run it locally:
+
+```bash
+npx vercel dev
+```
+
+Differences from the CLI, since this is open on the internet instead of
+run by hand:
+
+- **Dependency-count cap (100 per request)** rather than a byte-size
+  limit — the actual cost driver is registry calls per dependency, not
+  request payload size (real `package.json` files are tiny regardless of
+  dependency count).
+- **A 25-second internal timeout**, independent of the platform's own
+  function timeout, so a slow npm/GitHub response gets the client a clean
+  JSON error instead of a raw platform timeout. Note: this stops the
+  client from *waiting* on the in-flight registry requests, it doesn't
+  abort them server-side (no `AbortController` threaded through
+  `registryClient`/`githubReleaseCheck` — out of scope for this pass).
+- **Rate limiting — implemented, but confirmed weaker than it looks.**
+  An in-memory per-IP counter is checked before every scan. Testing it
+  locally via `vercel dev` showed it provides **zero actual protection**
+  there: each invocation runs as an isolated process with fresh module
+  state, so the counter never accumulates between requests — verified by
+  temporarily logging the tracked count, which read `1` on every one of
+  several rapid sequential requests. In real production it may do a
+  little better on a single warm instance handling consecutive requests,
+  but Vercel Functions scale to multiple concurrent instances with
+  independent memory, so it's still not a real distributed limit. A
+  deployment expecting genuine public traffic should replace this with
+  Vercel KV or Upstash Redis. The dependency-count cap and timeout above
+  are the safeguards that actually hold regardless of instance/process
+  state.
+- **No internal error details reach the client.** Every failure path
+  returns a small `{ "error": "..." }` JSON object; full detail (stack
+  traces, the raw manifest that failed to parse, etc.) goes to the
+  platform's server-side logs only via `console.error`. Caught one real
+  instance of this leaking during testing: `req.body` on Vercel's Node
+  runtime is a lazy getter that throws synchronously on invalid JSON, and
+  that access wasn't in the initial try/catch — it silently crashed the
+  whole invocation, returning the platform's generic
+  `FUNCTION_INVOCATION_FAILED` instead of the intended clean 400. Fixed
+  by wrapping that specific access.
+
+**Verified locally (`vercel dev`), not just assumed working:** POSTing
+the real `test-fixtures/express-package.json` (44 dependencies) to
+`/api/scan` and running `node bin/scanner.js scan
+./test-fixtures/express-package.json --json` for the same file produced
+**byte-for-byte identical output** (diffed programmatically, not
+eyeballed). The frontend was exercised in a real browser with the
+event-stream fixture and correctly rendered it as High with the right
+signals. Every error path (malformed JSON, wrong HTTP method, array
+instead of object, unknown package, over the dependency cap) was tested
+against the running dev server, not just reasoned about — this is how
+the `req.body` bug above was actually found.
+
 ## Example: a real end-to-end scan
 
 `test-fixtures/version-anomaly-example-package.json` pins
@@ -702,3 +768,10 @@ automated tests (130 passing).
 - Real-time CI integration (fail a build on High-risk findings)
 - Cross-checking flagged packages against [OSV.dev](https://osv.dev)'s
   known-malicious-package database
+- A real distributed rate limiter (Vercel KV / Upstash) for the web
+  version — the current in-memory one is confirmed to do nothing under
+  `vercel dev` and is unreliable in production; see "Web version" above
+- Threading an `AbortController` through `registryClient`/
+  `githubReleaseCheck` so the web version's internal timeout actually
+  cancels in-flight registry requests server-side, not just stops the
+  client from waiting on them

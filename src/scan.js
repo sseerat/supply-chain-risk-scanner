@@ -11,6 +11,42 @@ function resolvedVersionFor(installScriptResult, versionAnomalyResult) {
   return null;
 }
 
+/**
+ * Core scan pipeline, shared by the CLI and the web API: runs the
+ * typosquat/install-script/version-anomaly checks for a list of
+ * { name, versionRange, type } dependencies and combines them into a
+ * per-package risk result. No file I/O or console output here — callers
+ * decide how to surface the result.
+ */
+export async function runScan(deps, { concurrency } = {}) {
+  const typosquatFlags = findTyposquats(deps.map((d) => d.name));
+  const [installScriptResults, versionAnomalyResults] = await Promise.all([
+    scanInstallScripts(deps, concurrency ? { concurrency } : undefined),
+    scanVersionAnomalies(deps, concurrency ? { concurrency } : undefined),
+  ]);
+
+  return deps.map(({ name, versionRange, type }) => {
+    const typosquatFlag = typosquatFlags.get(name) ?? null;
+    const installScriptResult = installScriptResults.get(name) ?? null;
+    const versionAnomalyResult = versionAnomalyResults.get(name) ?? null;
+
+    const signals = deriveSignals({ typosquatFlag, installScriptResult, versionAnomalyResult });
+    const score = computeRiskScore(signals);
+
+    return {
+      name,
+      versionRange,
+      type,
+      resolvedVersion: resolvedVersionFor(installScriptResult, versionAnomalyResult),
+      typosquat: typosquatFlag,
+      installScript: installScriptResult,
+      versionAnomaly: versionAnomalyResult,
+      signals,
+      score,
+    };
+  });
+}
+
 export async function scanCommand(packageJsonPath, { json = false } = {}) {
   let deps;
   try {
@@ -35,32 +71,7 @@ export async function scanCommand(packageJsonPath, { json = false } = {}) {
     console.log("(checking typosquats, install scripts, and version/maintainer history via the npm registry)\n");
   }
 
-  const typosquatFlags = findTyposquats(deps.map((d) => d.name));
-  const [installScriptResults, versionAnomalyResults] = await Promise.all([
-    scanInstallScripts(deps),
-    scanVersionAnomalies(deps),
-  ]);
-
-  const results = deps.map(({ name, versionRange, type }) => {
-    const typosquatFlag = typosquatFlags.get(name) ?? null;
-    const installScriptResult = installScriptResults.get(name) ?? null;
-    const versionAnomalyResult = versionAnomalyResults.get(name) ?? null;
-
-    const signals = deriveSignals({ typosquatFlag, installScriptResult, versionAnomalyResult });
-    const score = computeRiskScore(signals);
-
-    return {
-      name,
-      versionRange,
-      type,
-      resolvedVersion: resolvedVersionFor(installScriptResult, versionAnomalyResult),
-      typosquat: typosquatFlag,
-      installScript: installScriptResult,
-      versionAnomaly: versionAnomalyResult,
-      signals,
-      score,
-    };
-  });
+  const results = await runScan(deps);
 
   if (json) {
     console.log(renderJson(results));
