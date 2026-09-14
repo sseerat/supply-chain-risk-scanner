@@ -139,13 +139,18 @@ describe("known malicious-style patterns are flagged (true positives)", () => {
 });
 
 // ---------------------------------------------------------------------------
-// 3 & 4. Known legitimate scripts (true negatives) + false-positive
-// regression benchmark, in one pass over the same real-world fixture.
+// 3. Known legitimate scripts (true negatives) — a small, named spot-check.
+//
+// This is a hand-picked sample (real native-build packages known by name:
+// node-sass, bcrypt, sharp, etc.) — useful for pinning specific, readable
+// true-negative cases, but NOT the false-positive rate claim. That measured
+// rate below comes from an unbiased sample; see that block's comment for why
+// this distinction matters.
 // ---------------------------------------------------------------------------
-describe("known legitimate install scripts are not flagged (true negatives + FP regression)", () => {
+describe("known legitimate install scripts are not flagged (named spot-check)", () => {
   const { packages } = loadFixture("test-fixtures/legit-install-scripts.json");
 
-  it("loaded a non-trivial real-world sample", () => {
+  it("loaded a non-trivial spot-check sample", () => {
     expect(packages.length).toBeGreaterThanOrEqual(20);
   });
 
@@ -153,15 +158,49 @@ describe("known legitimate install scripts are not flagged (true negatives + FP 
     const { flags } = checkPackageScripts(scripts);
     expect(flags, `expected ${name} not to be flagged, got ${JSON.stringify(flags)}`).toEqual({});
   });
+});
 
-  it("false-positive rate across the full benchmark stays at 0 (measured 0/23 in Phase 3)", () => {
+// ---------------------------------------------------------------------------
+// 4. False-positive rate regression — unbiased sample.
+//
+// The hand-picked 23-package spot-check above only proves the detector is
+// quiet on packages *already known* to be legitimate native builds — not a
+// real false-positive rate, since that sample was chosen precisely because
+// it's clean. This block instead uses a sample gathered by SEARCHING the npm
+// registry for generic technical terms tied to native-build/install patterns
+// (node-gyp, prebuild, napi, bindings, postinstall, husky, opencollective,
+// etc. — see test-fixtures/install-script-search-sample.json's `queries`),
+// then keeping every candidate whose real /latest scripts field actually has
+// a preinstall/install/postinstall entry. That's 578 real packages — still
+// not literally "every package on npm with an install script" (a pure
+// random sample of npm's top 10000 by popularity found only 5 such packages
+// out of 10000 examined — a 0.05% incidence rate too low to benchmark
+// against directly), but a much broader, non-hand-picked population than
+// the 23-package spot-check.
+// ---------------------------------------------------------------------------
+describe("false-positive rate regression (unbiased registry-search sample)", () => {
+  const { packages, candidatesSearched, foundCount } = loadFixture(
+    "test-fixtures/install-script-search-sample.json"
+  );
+
+  it("loaded the expected sample size", () => {
+    expect(packages.length).toBe(foundCount);
+    expect(candidatesSearched).toBeGreaterThan(4000);
+    expect(packages.length).toBeGreaterThanOrEqual(500);
+  });
+
+  it("false-positive count stays at or below 4/578 (0.69%, measured in Phase 3)", () => {
     const flaggedPackages = packages.filter((p) => {
       const { flags } = checkPackageScripts(p.scripts);
       return Object.keys(flags).length > 0;
     });
+
+    // Count-based bound against the fixed 578-package sample size (checked
+    // above) is the precise regression guard — a rate comparison here would
+    // just reintroduce float-rounding noise around the same number.
     expect(
-      flaggedPackages.map((p) => p.name),
-      "false positives found"
-    ).toEqual([]);
+      flaggedPackages.length,
+      `flagged: ${JSON.stringify(flaggedPackages.map((p) => p.name))}`
+    ).toBeLessThanOrEqual(4);
   });
 });

