@@ -99,10 +99,48 @@ the brief's suggested `fast-levenshtein` dependency.
 
 ## Testing
 
+Automated tests (Vitest) live in `src/typosquat.test.js`. Run them with:
+
+```bash
+npm test
+```
+
+Chosen over Jest for zero-config ESM support — this project uses native
+`"type": "module"`, which Jest needs extra transform config for.
+
+What's covered:
+
+- **Threshold-logic unit tests** — `maxAllowedDistance()` is tested directly
+  against each length bucket (< 4, 4–5, ≥ 6 chars), and `checkTyposquat()` is
+  exercised against a small controlled popular-name list to pin down exact
+  boundary behavior (e.g. a name at exactly the allowed distance flags; one
+  edit further doesn't), independent of the live snapshot's contents.
+- **True positives** — a fixed set of typosquat-style names (`lodahs`,
+  `expres`, `axioss`, `commanderr`, etc.), including two picked to sit
+  exactly on the boundary of their length bucket, asserted against the real
+  bundled snapshot with exact expected `closestMatch`/`distance`.
+- **True negatives** — exact matches to popular packages, the short-name
+  false positives from the original flat-threshold measurement (`util`,
+  `temp`, `moo`, etc. — must stay unflagged), a past-boundary case, and a
+  dedicated check that the real `express` fixture produces zero flags.
+- **Documented limitations** — a fixed set of names the current algorithm is
+  known to miss (`axois`, `chlak`, `electorn`, …, all transposition- or
+  length-bucket-driven), asserted as *currently* unflagged so a future
+  algorithm change surfaces here deliberately rather than silently.
+- **False-positive regression** — replays the Phase 2 measurement (all 500
+  packages ranked 1001–1500, `test-fixtures/popular-packages-1001-1500.json`)
+  and asserts the flag count stays at or below 24/500 (4.8%), so a future
+  change to the threshold logic can't silently regress false-positive rate.
+
+Fixtures:
+
 - `test-fixtures/express-package.json` — a real, fetched `express` manifest
   (44 dependencies) used as a false-positive check.
 - `test-fixtures/typosquat-example-package.json` — a synthetic manifest with
-  deliberately misspelled package names, used as a true-positive check.
+  deliberately misspelled package names, used as a true-positive check
+  (exercised manually via the CLI; see Phase 2 commit for sample output).
+- `test-fixtures/popular-packages-1001-1500.json` — the 500-package
+  false-positive benchmark sample, for the regression test above.
 
 ## Roadmap
 

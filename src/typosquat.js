@@ -12,7 +12,7 @@ const SNAPSHOT_PATH = join(__dirname, "..", "data", "top-1000-packages.json");
 // see README for the false-positive analysis behind these cutoffs.
 const MAX_FLAG_DISTANCE = 2;
 
-function maxAllowedDistance(shorterLength) {
+export function maxAllowedDistance(shorterLength) {
   if (shorterLength < 4) return 0; // require exact match, never flag
   if (shorterLength <= 5) return 1;
   return MAX_FLAG_DISTANCE;
