@@ -85,10 +85,10 @@ node bin/scanner.js scan ./test-fixtures/version-anomaly-example-package.json --
 
 **At larger scale** — scanning the real `express` dependency tree
 (`test-fixtures/express-package.json`, 44 packages) — produced **8 High,
-0 Medium, 36 Low**, all real, all explainable (the `ulisesgascon`
-maintenance-revival pattern described in "Phase 5 — Scoring & report"
-below). That's the Definition-of-Done real-project test this brief asked
-for.
+0 Medium, 36 Low**. That's the Definition-of-Done real-project test this
+brief asked for, and it's also the result that surfaced this tool's most
+important limitation — see "What 'High' actually means" under Phase 5
+below before trusting a High score as more than "worth a look."
 
 ## Detection logic
 
@@ -467,20 +467,59 @@ judgment, don't auto-convict.
 | `undertaker-registry` | dormancy + maintainer change | added `yocontra`, a known gulp/undertaker ecosystem maintainer |
 | `os-locale` | **all three** (dormancy + major jump + maintainer change) | `6.0.2` → `8.0.0` after 1504 days quiet — the one real match for the brief's full event-stream-pattern example |
 
+#### What "High" actually means (the express result, examined honestly)
+
 **Running this against a real, large dependency tree (express, 44
-packages)** produced **8 High, 0 Medium, 36 Low** — every single High was
-the same `dormancy + maintainerChange` pattern, and every one traces back
-to `ulisesgascon`, a real Express/OpenJS technical-committee member,
-being added as a maintainer to older, quiet Express-ecosystem packages
-(`http-errors`, `range-parser`, `morgan`, `cookie-parser`, `after`, etc.)
-as part of a documented maintenance-revival effort. This is a good
-demonstration of the tool's actual value and its limits in the same
-breath: it correctly and automatically found every one of these events
-using nothing but public registry data, and a human reviewing the report
-can quickly tell "this is one person's name repeating across
-Express-adjacent packages" rather than 8 independent unrelated incidents
-— which is exactly the judgment call a heuristic scanner should leave to
-a person, not silently make itself.
+packages)** produced **8 High, 0 Medium, 36 Low**. Before calling this
+phase done, I pulled the exact signals for all 8, rather than eyeballing
+the table — every single one is the identical pair, `dormancy +
+maintainerChange` (added), and every one is a known-benign hand-off:
+
+| package | dormancy gap | maintainer change |
+|---|---|---|
+| `accepts` | 941d | `+wesleytodd` |
+| `statuses` | 1616d | `+ulisesgascon`, `+blakeembrey` |
+| `encodeurl` | 2258d | `+blakeembrey` |
+| `http-errors` | 1434d | `+ulisesgascon` |
+| `range-parser` | 2603d | `+ulisesgascon`, `+blakeembrey` |
+| `after` | 1143d | `+defunctzombie`, `−shtylman` |
+| `morgan` | 1945d | `+ulisesgascon` |
+| `cookie-parser` | 1057d | `+ulisesgascon` |
+
+Zero of the 8 involve `typosquat` or `installScript` — a real check I ran
+specifically to rule out the failure mode where a lower-confidence signal
+(like a borderline typosquat match) stacks with an unrelated
+version-anomaly flag to inflate a score. That's not what's happening
+here.
+
+What *is* happening is more fundamental: **dormancy and maintainerChange
+aren't two independent signals corroborating each other — they're two
+views of one event.** A new maintainer is usually *why* a dormant package
+suddenly ships again, so the pair isn't "two unlikely things coincided,"
+it's "one thing happened, and it produced two flags." And critically: I
+checked whether event-stream's real malicious version differs structurally
+from these 8, and **it doesn't** — at `3.3.5`, the exact version that
+shipped days before the backdoor, event-stream shows only `dormancy +
+maintainer added`, the same shape as every row above. `dominictarr` wasn't
+removed until `4.0.0`, a later, separate version — so even that stronger
+tell (an existing maintainer being pushed out) wasn't present at the
+version that actually mattered. At the level of data available from the
+registry, a trusted engineer reviving a stable utility and an attacker
+account getting added right before a backdoor ship are the same shape.
+That's a reputation/identity gap, not a threshold to tune away — no
+rule change within the current signal set can keep event-stream's real
+attack version at High while excluding these 8, because the data doesn't
+distinguish them.
+
+Given that, **High is left defined as "2+ independent signal types
+landed on the same package," not "likely malicious."** On a real,
+well-audited dependency tree, most High results will be legitimate
+maintenance events, not attacks — that's an accepted, explicit trade-off:
+missing a real hijack is worse than one extra High label a human
+dismisses in two minutes after seeing a recognizable name. The CLI's
+summary line says this plainly (see `src/report.js`'s `renderSummary`)
+rather than leaving "High" to imply more confidence than the tool
+actually has.
 
 **`--json`:** `scanner scan <path> --json` prints the full result array
 (one object per dependency, including every raw sub-result — typosquat

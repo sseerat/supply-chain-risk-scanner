@@ -82,5 +82,13 @@ export function renderSummary(results) {
     `${counts.Low} Low`,
   ];
 
-  return `\nRisk summary: ${parts.join(", ")} (of ${results.length} direct dependencies). This is a heuristic report — review flagged packages yourself, don't treat any score as proof.`;
+  const legend =
+    "High means 2+ independent signal types landed on the same package — " +
+    "not \"likely malicious.\" On real dependency trees, most High results " +
+    "are legitimate maintainer hand-offs that happen to look, at the registry-" +
+    "metadata level, structurally identical to a hijack. Treat every score as " +
+    "\"worth a 2-minute look,\" not a verdict — this tool has no way to check " +
+    "who a maintainer actually is.";
+
+  return `\nRisk summary: ${parts.join(", ")} (of ${results.length} direct dependencies).\n${legend}`;
 }
