@@ -1,0 +1,171 @@
+{
+  "source": "https://registry.npmjs.org/<name>/latest, fetched directly",
+  "description": "Real, legitimate npm packages that ship preinstall/install/postinstall scripts for known-benign reasons (native module builds via node-gyp/prebuild-install, or fetching prebuilt binaries via a local install script). Used as a false-positive benchmark for the install-script red-flag detector.",
+  "fetchedAt": "2026-09-14",
+  "count": 23,
+  "packages": [
+    {
+      "name": "node-sass",
+      "version": "9.0.0",
+      "scripts": {
+        "install": "node scripts/install.js",
+        "postinstall": "node scripts/build.js"
+      }
+    },
+    {
+      "name": "bcrypt",
+      "version": "6.0.0",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "puppeteer",
+      "version": "25.10.0",
+      "scripts": {
+        "postinstall": "node install.mjs"
+      }
+    },
+    {
+      "name": "canvas",
+      "version": "3.2.3",
+      "scripts": {
+        "install": "prebuild-install -r napi || node-gyp rebuild"
+      }
+    },
+    {
+      "name": "sqlite3",
+      "version": "6.0.1",
+      "scripts": {
+        "install": "prebuild-install -r napi || node-gyp rebuild"
+      }
+    },
+    {
+      "name": "robotjs",
+      "version": "0.9.1",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "fsevents",
+      "version": "2.3.3",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "esbuild",
+      "version": "0.28.2",
+      "scripts": {
+        "postinstall": "node install.js"
+      }
+    },
+    {
+      "name": "cypress",
+      "version": "16.0.0",
+      "scripts": {
+        "postinstall": "node dist/index.js --exec install"
+      }
+    },
+    {
+      "name": "deasync",
+      "version": "0.1.31",
+      "scripts": {
+        "install": "node ./build.js"
+      }
+    },
+    {
+      "name": "simple-git-hooks",
+      "version": "2.14.0",
+      "scripts": {
+        "postinstall": "node ./postinstall.js"
+      }
+    },
+    {
+      "name": "core-js",
+      "version": "3.50.0",
+      "scripts": {
+        "postinstall": "node -e \"try{require('./postinstall')}catch(e){}\""
+      }
+    },
+    {
+      "name": "argon2",
+      "version": "0.45.1",
+      "scripts": {
+        "install": "cross-env ZERO_AR_DATE=1 node-gyp-build"
+      }
+    },
+    {
+      "name": "libxmljs2",
+      "version": "0.37.0",
+      "scripts": {
+        "install": "prebuild-install || node-gyp rebuild"
+      }
+    },
+    {
+      "name": "node-expat",
+      "version": "2.4.1",
+      "scripts": {
+        "install": "node-gyp rebuild"
+      }
+    },
+    {
+      "name": "nodejieba",
+      "version": "3.5.8",
+      "scripts": {
+        "install": "npx @mapbox/node-pre-gyp install --fallback-to-build"
+      }
+    },
+    {
+      "name": "re2",
+      "version": "1.26.1",
+      "scripts": {
+        "install": "install-from-cache --artifact build/Release/re2.node --host-var RE2_DOWNLOAD_MIRROR --skip-path-var RE2_DOWNLOAD_SKIP_PATH --skip-ver-var RE2_DOWNLOAD_SKIP_VER --force-build-var RE2_DOWNLOAD_FORCE_BUILD || node-gyp -j max rebuild"
+      }
+    },
+    {
+      "name": "tree-sitter",
+      "version": "0.25.1",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "keytar",
+      "version": "7.9.0",
+      "scripts": {
+        "install": "prebuild-install || npm run build"
+      }
+    },
+    {
+      "name": "node-pty",
+      "version": "1.1.0",
+      "scripts": {
+        "install": "node scripts/prebuild.js || node-gyp rebuild",
+        "postinstall": "node scripts/post-install.js"
+      }
+    },
+    {
+      "name": "leveldown",
+      "version": "6.1.1",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "ffi-napi",
+      "version": "4.0.3",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    },
+    {
+      "name": "ref-napi",
+      "version": "3.0.3",
+      "scripts": {
+        "install": "node-gyp-build"
+      }
+    }
+  ]
+}

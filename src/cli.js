@@ -12,8 +12,8 @@ export function run(argv) {
     .command("scan")
     .description("Scan a package.json and list its direct dependencies")
     .argument("<packageJsonPath>", "path to the package.json file to scan")
-    .action((packageJsonPath) => {
-      scanCommand(packageJsonPath);
+    .action(async (packageJsonPath) => {
+      await scanCommand(packageJsonPath);
     });
 
   program.parse(argv);

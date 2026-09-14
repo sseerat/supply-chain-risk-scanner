@@ -1,0 +1,12 @@
+{
+  "name": "install-script-example",
+  "version": "1.0.0",
+  "description": "Fixture mixing real legit native-build packages with a fake package to exercise 'not found on registry' handling.",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "sharp": "^0.35.0",
+    "node-sass": "^9.0.0",
+    "commander": "^12.1.0",
+    "this-package-definitely-does-not-exist-xyz-987": "^1.0.0"
+  }
+}
