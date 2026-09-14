@@ -18,6 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "commander": "^15.0.0"
+    "commander": "^15.0.0",
+    "fast-levenshtein": "^3.0.0"
   }
 }

@@ -1,4 +1,5 @@
 import { getDirectDependencies } from "./parsePackageJson.js";
+import { findTyposquats } from "./typosquat.js";
 
 export function scanCommand(packageJsonPath) {
   let deps;
@@ -17,11 +18,25 @@ export function scanCommand(packageJsonPath) {
 
   console.log(`\nFound ${deps.length} direct dependencies in ${packageJsonPath}:\n`);
 
+  const typosquatFlags = findTyposquats(deps.map((d) => d.name));
+
   console.table(
-    deps.map(({ name, versionRange, type }) => ({
-      Package: name,
-      "Version Range": versionRange,
-      Type: type,
-    }))
+    deps.map(({ name, versionRange, type }) => {
+      const flag = typosquatFlags.get(name);
+      return {
+        Package: name,
+        "Version Range": versionRange,
+        Type: type,
+        "Typosquat Risk": flag
+          ? `possible typo of "${flag.closestMatch}" (distance ${flag.distance})`
+          : "-",
+      };
+    })
   );
+
+  if (typosquatFlags.size > 0) {
+    console.log(
+      `\n${typosquatFlags.size} package(s) flagged as possible typosquats. Review closely — this is a heuristic, not proof.`
+    );
+  }
 }
