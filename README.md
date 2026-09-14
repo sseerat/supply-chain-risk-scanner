@@ -206,11 +206,153 @@ client dependency adds nothing here. Also added `semver` (not in the
 brief's suggested stack) for version-range resolution — needed to check the
 version that would actually be installed rather than guessing.
 
+### Phase 4 — Maintainer & version anomalies
+
+For each dependency's resolved version, the scanner reuses the same cached
+registry metadata document Phase 3 already fetched (`registryClient`'s
+in-memory cache, keyed by package name — no new fetch path added) and
+checks its publish history (`time`) and per-version `maintainers` list for
+three things:
+
+1. **Dormancy then publish** — the resolved version was published more
+   than `DORMANCY_DAYS` after whichever version came immediately before it
+   in *actual publish-time order* (not semver order).
+2. **Large major-version jump** — the resolved version's major number
+   jumps by 2 or more compared to the immediately preceding published
+   version (e.g. `2.x` straight to `4.x`). A routine single major bump
+   isn't flagged — see the measurement below for why. When this fires, the
+   scanner makes a best-effort check for a matching GitHub release (see
+   below).
+3. **Maintainer/owner change** — the recorded `maintainers` list differs
+   between the resolved version and its immediate predecessor. Verified
+   against real registry data that this field is a genuine point-in-time
+   snapshot, not retroactively rewritten (an old version's `maintainers`
+   still shows the maintainer's old email address, for example) — so this
+   reflects who actually had publish access at each release. `_npmUser`
+   (who personally ran `npm publish` for one version) was considered and
+   rejected as the primary signal: on a healthy multi-maintainer project,
+   different people publish different releases constantly without it
+   meaning anything changed.
+
+**GitHub release check (enrichment on #2 only):** when a major-jump is
+flagged, the scanner tries the package's `repository` URL against GitHub's
+release API, guessing a few common tag formats (`v2.0.0`, `2.0.0`,
+`pkgname@2.0.0`). This is scoped to major-jump specifically — not a
+universal check — for two reasons: it's literally what the brief asks
+("no corresponding GitHub release/changelog" is framed as a property *of*
+a large jump), and unauthenticated GitHub API access is capped at
+**60 requests/hour**, which wouldn't survive a scan of a real dependency
+tree if every package triggered a call. The moment one call comes back
+rate-limited, the scanner stops trying for the rest of that scan run
+rather than burning through guaranteed-to-fail requests. Tag-guessing is
+inherently incomplete (real repos use all sorts of conventions), so "no
+matching release found" is presented as weak evidence, not proof.
+
+**Real-world validation — the event-stream incident:** rather than only
+testing against synthetic examples, I validated against the actual 2018
+`event-stream` maintainer-hijack (live registry data, later saved as a
+static fixture — see Testing below):
+
+- `3.3.4` → `3.3.5`: a **780-day** gap (over 2 years of silence), and
+  `right9ctrl` — the account that would go on to publish the backdoored
+  `3.3.6` days later — added as a maintainer at that exact version.
+- `3.3.5` → `4.0.0`: `dominictarr`, the original author, removed from the
+  maintainers list shortly after.
+
+The scanner catches both signals at exactly the versions where they
+happened, using nothing but the registry's own historical data — no
+special-casing for this package.
+
+**False-positive measurement — same standard as Phase 3, precise about the
+population:** 300 packages randomly sampled (fixed seed 42) from
+npm's top 10000 by popularity — with a data-quality catch: that ranking
+dataset itself contains only **5,247 truly unique names among its 10,000
+entries** (250 names repeat, one as many as 21 times — an upstream
+scraping artifact, not something I introduced), so the 300-item draw
+de-duplicated down to **270 unique real packages**. That's the honest
+sample size reported below and locked into the regression test — see
+`test-fixtures/version-anomaly-sample.json` for the full caveat in its own
+words.
+
+| dormancy threshold | flagged (of 270) |
+|---|---|
+| 180 days | 31.1% |
+| 270 days | 26.3% |
+| **365 days (brief's suggestion)** | **18.5%** |
+| 450 days | 15.2% |
+| **545 days (chosen)** | **13.0%** |
+| 730 days | 8.5% |
+
+| major-jump threshold | flagged (of 270) |
+|---|---|
+| **≥ 1 (routine bump)** | **18.1%** |
+| **≥ 2 (chosen)** | **1.5%** |
+| ≥ 3 | 0.4% |
+| ≥ 4 | 0.4% |
+
+**Why 545 days, not the brief's 365:** dormancy-then-publish is not a rare
+event in the general npm ecosystem — plenty of small, "done" utility
+packages go quiet for over a year and then get a routine maintenance
+release, which isn't inherently suspicious. At 365 days, nearly 1 in 5
+random popular packages would be flagged; that's too noisy to call
+"anomalous" with a straight face. 545 days (~18 months) cuts that to 13%
+while still leaving a **235-day margin** under event-stream's real
+780-day gap — comfortable enough that the real incident isn't sitting
+right at the edge of the threshold.
+
+**Why ≥ 2 for major jumps:** a routine single major bump (`1.x` → `2.x`)
+flagged 18.1% of the sample — exactly as expected, since that's normal
+semver practice, which is why it was excluded by design from the start
+rather than discovered as a problem. Requiring a skip of at least one
+major version (`≥ 2`) drops that to 1.5% (4 packages), and I checked all
+four by hand: three are `@types/*` packages (`@types/d3`, `@types/d3-color`,
+`@types/react-redux`), which track their underlying library's own major
+version rather than semver-ing independently — a known, systematic,
+explainable pattern, not noise. The fourth, `os-locale` (`6.0.2` → `8.0.0`
+after a 1504-day gap), is a genuine case where two signals coincide —
+exactly the kind of package this tool should surface for a human to look
+at, not a false positive.
+
+**Maintainer-change incidence (6.3%, 17/270) — deliberately not tuned to a
+threshold**, since it's a binary "did the list change" check, not a
+numeric cutoff. The real examples in the sample make the point that this
+signal alone isn't a verdict: `object-assign` added `gaearon` (Dan
+Abramov, a well-known maintainer — an unremarkable hand-off), while
+`imagemin` removed five maintainers at once (`nothingismagick`, `kevva`,
+`1000ch`, `xhmikosr`, `shinnn` — a large team reorganization, still not
+inherently malicious). Both look identical to the detector; distinguishing
+"routine hand-off" from "hostile takeover" needs more context than a
+maintainer-list diff alone provides — exactly why Phase 5's scoring
+combines signals instead of treating any one of them as a standalone
+verdict.
+
+**Two real bugs found and fixed during this measurement** (both covered by
+new tests):
+
+1. **Nightly/prerelease versions corrupting the major-jump comparison.**
+   Some packages publish to a separate prerelease channel with its own
+   version scheme (e.g. `0.0.0-nightly-next-20260902.0`) interleaved in
+   publish-time history with stable releases. The first measurement pass
+   read one of these as "the previous version" and reported a 48-major
+   jump for a routine `47.x` → `48.x` release. Fixed in
+   `src/versionAnomalyCheck.js` by excluding prerelease versions (anything
+   with a semver `-tag`) from the dormancy/major-jump comparison baseline —
+   maintainer-change checks are left unfiltered, since who can publish is
+   meaningful regardless of channel.
+2. **`resolveVersion` didn't match real npm behavior.** It called
+   `semver.maxSatisfying` with `{ includePrerelease: true }`, which allows
+   a plain range like `^1.0.0` to resolve to a prerelease version
+   (`1.5.0-beta.1`) — something a real `npm install` never does by
+   default. Fixed in `src/registryClient.js` by dropping that option. This
+   affects Phase 3's install-script check too (it uses the same resolved
+   version), not just Phase 4.
+
 ## Testing
 
 Automated tests (Vitest) live in `src/typosquat.test.js`,
-`src/installScriptCheck.test.js`, and `src/registryClient.test.js`. Run them
-with:
+`src/installScriptCheck.test.js`, `src/registryClient.test.js`,
+`src/versionAnomalyCheck.test.js`, and `src/githubReleaseCheck.test.js`. Run
+them with:
 
 ```bash
 npm test
@@ -287,12 +429,52 @@ Fixtures:
   real native-build packages with a nonexistent package name, used to
   manually exercise the "not found on registry" path via the CLI.
 
+Also covered for Phase 4 (`src/versionAnomalyCheck.test.js` /
+`src/githubReleaseCheck.test.js`):
+
+- **Unit tests on the core logic** — `getVersionHistory` (chronological
+  sort, excluding `created`/`modified`/`unpublished`), `checkDormancy`,
+  `checkMajorJump` (including the prerelease-filtering fix, tested directly
+  against a synthetic nightly-build scenario), and `checkMaintainerChange`
+  (added/removed maintainers, first-release-has-no-predecessor edge case).
+- **Real-world true positive** — the event-stream 2018 incident, replayed
+  against a static, trimmed snapshot of its actual registry metadata
+  (`test-fixtures/event-stream-metadata-snapshot.json`, offline — no live
+  fetch in the test): asserts the exact 780-day dormancy gap, `right9ctrl`
+  being added as maintainer at 3.3.5, and `dominictarr` being removed by
+  4.0.0.
+- **False-positive rate regression (unbiased sample)** — the 270-package
+  sample (`test-fixtures/version-anomaly-sample.json`) asserted to produce
+  at most 35 dormancy flags (13.0%) and at most 4 major-jump flags (1.5%)
+  at the chosen thresholds, and at most 17 maintainer-change flags (6.3%,
+  informational).
+- **GitHub release check** — `parseGithubRepo` tested against `git+https`,
+  plain `https`, object-form, and `ssh`-style repository fields;
+  `checkGithubRelease` tested with a mocked `fetch`: finds a release on the
+  first matching tag format, falls through multiple tag formats before
+  giving up, reports `found: false` cleanly when none match, and — the
+  important one given the 60/hour rate limit — stops after exactly one
+  call (not three) the moment a 403 comes back, rather than burning through
+  the rest of the tag attempts.
+
+Fixtures:
+
+- `test-fixtures/version-anomaly-example-package.json` — pins
+  `event-stream@3.3.5` (the real incident version) alongside healthy
+  packages, for manually exercising the CLI end-to-end.
+- `test-fixtures/event-stream-metadata-snapshot.json` — trimmed static
+  snapshot of event-stream's real registry metadata, backing the
+  true-positive tests above.
+- `test-fixtures/version-anomaly-sample.json` — the 270-package unbiased
+  sample backing the false-positive rate measurement above (see its
+  `description` field for the full duplicate-dataset caveat).
+
 ## Roadmap
 
 - [x] Phase 1 — Foundation (CLI, dependency listing)
 - [x] Phase 2 — Typosquat detection
 - [x] Phase 3 — Install script red flags (registry API + script inspection)
-- [ ] Phase 4 — Maintainer & version anomalies
+- [x] Phase 4 — Maintainer & version anomalies
 - [ ] Phase 5 — Scoring & report (`--json`, colored output)
 
 ## What I'd add with more time
@@ -303,6 +485,8 @@ Fixtures:
   invokes (e.g. `install.js`), not just the command string in `package.json`
 - A persistent (file-based) registry-metadata cache, so re-scanning a
   project across separate CLI runs also skips redundant network calls
+- Authenticated GitHub API access, to check every major-jump case (not just
+  until the first rate-limit hit) and try more tag-naming conventions
 - ML-based or reputation-weighted scoring instead of pure heuristics
 - Real-time CI integration (fail a build on High-risk findings)
 - Cross-checking flagged packages against [OSV.dev](https://osv.dev)'s

@@ -63,9 +63,15 @@ export function fetchPackageMetadata(name, { fetchImpl = fetch } = {}) {
  */
 export function resolveVersion(versionRange, metadata) {
   const publishedVersions = Object.keys(metadata.versions ?? {});
-  const resolved = semver.maxSatisfying(publishedVersions, versionRange, {
-    includePrerelease: true,
-  });
+  // Deliberately NOT { includePrerelease: true }: real npm excludes
+  // prerelease versions (1.5.0-beta.1) from matching a plain range like
+  // "^1.0.0" unless the range itself targets a prerelease. Matching that
+  // default matters here, not just for realism — Phase 4 found that some
+  // packages publish nightly/canary builds with unusual version numbers
+  // (e.g. "0.0.0-nightly-next-...") that would otherwise be eligible to get
+  // selected as "resolved" for certain ranges, corrupting the version being
+  // analyzed.
+  const resolved = semver.maxSatisfying(publishedVersions, versionRange);
   if (resolved) {
     return { version: resolved, approximated: false };
   }

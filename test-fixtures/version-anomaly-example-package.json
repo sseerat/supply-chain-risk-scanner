@@ -1,0 +1,10 @@
+{
+  "name": "version-anomaly-example",
+  "version": "1.0.0",
+  "description": "Fixture pinning a real historical incident (event-stream's 2018 maintainer hijack) alongside healthy packages, to exercise the version/maintainer anomaly detector via the CLI.",
+  "dependencies": {
+    "event-stream": "3.3.5",
+    "commander": "^12.1.0",
+    "debug": "^4.3.7"
+  }
+}

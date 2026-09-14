@@ -1,0 +1,5481 @@
+{
+  "source": "https://github.com/tristan-f-r/npm-rank raw.json (top 10000 by popularity), randomly shuffled with a fixed seed (42), first 300 draws taken then de-duplicated by name.",
+  "description": "Random sample of real npm packages used to pick Phase 4 thresholds empirically. IMPORTANT caveat: the source dataset itself contains only 5247 truly unique package names among its 10000 ranked entries (250 names are repeated, up to 21 times, apparently a scraping artifact upstream) \u2014 so a naive 300-item draw yielded only 270 unique packages after de-duplication. This is the de-duplicated set. Each entry was analyzed by calling the real production functions in src/versionAnomalyCheck.js directly (getVersionHistory/checkDormancy/checkMajorJump/checkMaintainerChange) at multiple candidate thresholds, not a reimplementation, so these numbers cannot drift from what the shipped code actually does.",
+  "dormancyCandidates": [
+    180,
+    270,
+    365,
+    450,
+    545,
+    730
+  ],
+  "majorJumpCandidates": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "sampleSize": 270,
+  "packages": [
+    {
+      "name": "postcss-browser-comments",
+      "latestVersion": "7.0.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@types/webidl-conversions",
+      "latestVersion": "7.0.3",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "postcss-simple-vars",
+      "latestVersion": "7.0.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "unload",
+      "latestVersion": "2.4.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@opentelemetry/instrumentation-winston",
+      "latestVersion": "0.66.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "depd",
+      "latestVersion": "2.0.0",
+      "dormancyAtThreshold": {
+        "180": 288,
+        "270": 288,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "undertaker-registry",
+      "latestVersion": "2.0.0",
+      "dormancyAtThreshold": {
+        "180": 1548,
+        "270": 1548,
+        "365": 1548,
+        "450": 1548,
+        "545": 1548,
+        "730": 1548
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [
+        "yocontra"
+      ],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "babel-helper-vue-jsx-merge-props",
+      "latestVersion": "2.0.3",
+      "dormancyAtThreshold": {
+        "180": 400,
+        "270": 400,
+        "365": 400,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "eslint-plugin-markdown",
+      "latestVersion": "5.1.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "react-feather",
+      "latestVersion": "2.0.10",
+      "dormancyAtThreshold": {
+        "180": 559,
+        "270": 559,
+        "365": 559,
+        "450": 559,
+        "545": 559,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "leven",
+      "latestVersion": "4.1.0",
+      "dormancyAtThreshold": {
+        "180": 1493,
+        "270": 1493,
+        "365": 1493,
+        "450": 1493,
+        "545": 1493,
+        "730": 1493
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "howler",
+      "latestVersion": "2.2.4",
+      "dormancyAtThreshold": {
+        "180": 811,
+        "270": 811,
+        "365": 811,
+        "450": 811,
+        "545": 811,
+        "730": 811
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "detective",
+      "latestVersion": "5.2.1",
+      "dormancyAtThreshold": {
+        "180": 1215,
+        "270": 1215,
+        "365": 1215,
+        "450": 1215,
+        "545": 1215,
+        "730": 1215
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [
+        "defunctzombie",
+        "lukechilds",
+        "raynos"
+      ],
+      "maintainerRemoved": [
+        "dominictarr"
+      ]
+    },
+    {
+      "name": "mapbox-gl",
+      "latestVersion": "3.30.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@sendgrid/mail",
+      "latestVersion": "8.1.6",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "hyperlinker",
+      "latestVersion": "1.0.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "env-ci",
+      "latestVersion": "11.2.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "react-error-boundary",
+      "latestVersion": "6.1.5",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@react-types/select",
+      "latestVersion": "3.13.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "estree-util-to-js",
+      "latestVersion": "2.0.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@ckeditor/ckeditor5-indent",
+      "latestVersion": "48.5.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@wdio/reporter",
+      "latestVersion": "9.31.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "is-invalid-path",
+      "latestVersion": "1.0.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@types/big.js",
+      "latestVersion": "7.0.0",
+      "dormancyAtThreshold": {
+        "180": 927,
+        "270": 927,
+        "365": 927,
+        "450": 927,
+        "545": 927,
+        "730": 927
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "ag-grid-react",
+      "latestVersion": "36.1.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "apollo-upload-client",
+      "latestVersion": "20.0.0",
+      "dormancyAtThreshold": {
+        "180": 334,
+        "270": 334,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@casl/ability",
+      "latestVersion": "7.0.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@reduxjs/toolkit",
+      "latestVersion": "2.12.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "pump",
+      "latestVersion": "3.0.4",
+      "dormancyAtThreshold": {
+        "180": 257,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "string-format",
+      "latestVersion": "2.0.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "cosmiconfig",
+      "latestVersion": "10.0.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "p-cancelable",
+      "latestVersion": "4.0.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "eslint-plugin-jsx-a11y",
+      "latestVersion": "6.10.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@vue/server-renderer",
+      "latestVersion": "3.5.42",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "sync-request",
+      "latestVersion": "6.1.0",
+      "dormancyAtThreshold": {
+        "180": 377,
+        "270": 377,
+        "365": 377,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "hast-util-to-text",
+      "latestVersion": "4.0.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "md5-file",
+      "latestVersion": "5.0.0",
+      "dormancyAtThreshold": {
+        "180": 732,
+        "270": 732,
+        "365": 732,
+        "450": 732,
+        "545": 732,
+        "730": 732
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "es-abstract",
+      "latestVersion": "1.24.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "workbox-routing",
+      "latestVersion": "7.4.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@smithy/util-retry",
+      "latestVersion": "4.6.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "parse-ms",
+      "latestVersion": "4.0.0",
+      "dormancyAtThreshold": {
+        "180": 1003,
+        "270": 1003,
+        "365": 1003,
+        "450": 1003,
+        "545": 1003,
+        "730": 1003
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "swagger2openapi",
+      "latestVersion": "7.0.8",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "shell-quote",
+      "latestVersion": "1.10.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "use-deep-compare-effect",
+      "latestVersion": "1.8.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@nx/nx-linux-x64-musl",
+      "latestVersion": "23.2.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "deprecation",
+      "latestVersion": "2.3.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "native-promise-only",
+      "latestVersion": "0.8.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "damerau-levenshtein",
+      "latestVersion": "1.0.8",
+      "dormancyAtThreshold": {
+        "180": 246,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@algolia/client-analytics",
+      "latestVersion": "5.59.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@fullcalendar/timegrid",
+      "latestVersion": "6.1.21",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@changesets/logger",
+      "latestVersion": "1.0.0",
+      "dormancyAtThreshold": {
+        "180": 706,
+        "270": 706,
+        "365": 706,
+        "450": 706,
+        "545": 706,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@types/hast",
+      "latestVersion": "3.0.5",
+      "dormancyAtThreshold": {
+        "180": 891,
+        "270": 891,
+        "365": 891,
+        "450": 891,
+        "545": 891,
+        "730": 891
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "jsondiffpatch",
+      "latestVersion": "0.7.6",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "react-ace",
+      "latestVersion": "15.0.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "prism-react-renderer",
+      "latestVersion": "2.4.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "vinyl-sourcemaps-apply",
+      "latestVersion": "0.2.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "esbuild-loader",
+      "latestVersion": "4.5.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "ts-deepmerge",
+      "latestVersion": "8.0.0",
+      "dormancyAtThreshold": {
+        "180": 385,
+        "270": 385,
+        "365": 385,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "postcss-url",
+      "latestVersion": "10.1.4",
+      "dormancyAtThreshold": {
+        "180": 1889,
+        "270": 1889,
+        "365": 1889,
+        "450": 1889,
+        "545": 1889,
+        "730": 1889
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "buffer-alloc",
+      "latestVersion": "1.2.0",
+      "dormancyAtThreshold": {
+        "180": 550,
+        "270": 550,
+        "365": 550,
+        "450": 550,
+        "545": 550,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "is-extglob",
+      "latestVersion": "2.1.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "dropzone",
+      "latestVersion": "6.3.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "busboy",
+      "latestVersion": "1.6.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@inquirer/editor",
+      "latestVersion": "5.3.3",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "fd-package-json",
+      "latestVersion": "2.0.0",
+      "dormancyAtThreshold": {
+        "180": 443,
+        "270": 443,
+        "365": 443,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@npmcli/query",
+      "latestVersion": "6.0.0",
+      "dormancyAtThreshold": {
+        "180": 198,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": [
+        "gar",
+        "hashtagchris"
+      ]
+    },
+    {
+      "name": "@vue/compiler-sfc",
+      "latestVersion": "3.5.42",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "prettier-eslint",
+      "latestVersion": "17.1.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@angular-eslint/bundled-angular-compiler",
+      "latestVersion": "22.5.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "int64-buffer",
+      "latestVersion": "1.1.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "immutability-helper",
+      "latestVersion": "3.1.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "caller-callsite",
+      "latestVersion": "6.0.0",
+      "dormancyAtThreshold": {
+        "180": 1445,
+        "270": 1445,
+        "365": 1445,
+        "450": 1445,
+        "545": 1445,
+        "730": 1445
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@babel/types",
+      "latestVersion": "8.0.5",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "fetch-cookie",
+      "latestVersion": "3.2.0",
+      "dormancyAtThreshold": {
+        "180": 358,
+        "270": 358,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@ant-design/icons-svg",
+      "latestVersion": "4.6.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@datadog/sketches-js",
+      "latestVersion": "2.1.1",
+      "dormancyAtThreshold": {
+        "180": 608,
+        "270": 608,
+        "365": 608,
+        "450": 608,
+        "545": 608,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@radix-ui/react-menu",
+      "latestVersion": "2.1.24",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "speakingurl",
+      "latestVersion": "14.0.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "xstate",
+      "latestVersion": "5.33.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "keycloak-js",
+      "latestVersion": "26.2.4",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "http-terminator",
+      "latestVersion": "3.2.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@xmldom/xmldom",
+      "latestVersion": "0.9.12",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@mantine/hooks",
+      "latestVersion": "9.6.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@react-types/grid",
+      "latestVersion": "3.4.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "xxhashjs",
+      "latestVersion": "0.2.2",
+      "dormancyAtThreshold": {
+        "180": 570,
+        "270": 570,
+        "365": 570,
+        "450": 570,
+        "545": 570,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "archy",
+      "latestVersion": "1.0.0",
+      "dormancyAtThreshold": {
+        "180": 919,
+        "270": 919,
+        "365": 919,
+        "450": 919,
+        "545": 919,
+        "730": 919
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "normalize.css",
+      "latestVersion": "8.0.1",
+      "dormancyAtThreshold": {
+        "180": 274,
+        "270": 274,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@types/d3",
+      "latestVersion": "7.4.3",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 4,
+        "2": 4,
+        "3": 4,
+        "4": 4
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@turf/projection",
+      "latestVersion": "7.4.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": [
+        "smallsaucepan"
+      ]
+    },
+    {
+      "name": "@babel/runtime-corejs2",
+      "latestVersion": "7.29.7",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "postcss-normalize-url",
+      "latestVersion": "9.0.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "ansi",
+      "latestVersion": "0.3.1",
+      "dormancyAtThreshold": {
+        "180": 615,
+        "270": 615,
+        "365": 615,
+        "450": 615,
+        "545": 615,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@google-cloud/precise-date",
+      "latestVersion": "6.0.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "currently-unhandled",
+      "latestVersion": "0.4.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "rx-lite-aggregates",
+      "latestVersion": "4.0.8",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "react-window",
+      "latestVersion": "2.3.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "use-resize-observer",
+      "latestVersion": "10.0.0",
+      "dormancyAtThreshold": {
+        "180": 1347,
+        "270": 1347,
+        "365": 1347,
+        "450": 1347,
+        "545": 1347,
+        "730": 1347
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@firebase/functions",
+      "latestVersion": "0.14.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "react-intersection-observer",
+      "latestVersion": "11.0.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@yarnpkg/libzip",
+      "latestVersion": "3.2.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "micromark-util-events-to-acorn",
+      "latestVersion": "2.0.3",
+      "dormancyAtThreshold": {
+        "180": 522,
+        "270": 522,
+        "365": 522,
+        "450": 522,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@types/file-saver",
+      "latestVersion": "2.0.7",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@use-gesture/react",
+      "latestVersion": "10.3.1",
+      "dormancyAtThreshold": {
+        "180": 187,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "path-scurry",
+      "latestVersion": "2.0.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "js-levenshtein",
+      "latestVersion": "1.1.6",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "read-only-stream",
+      "latestVersion": "2.0.0",
+      "dormancyAtThreshold": {
+        "180": 335,
+        "270": 335,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@ckeditor/ckeditor5-horizontal-line",
+      "latestVersion": "48.5.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "babel-helper-remap-async-to-generator",
+      "latestVersion": "6.24.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "import-meta-resolve",
+      "latestVersion": "4.2.0",
+      "dormancyAtThreshold": {
+        "180": 487,
+        "270": 487,
+        "365": 487,
+        "450": 487,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "spawn-error-forwarder",
+      "latestVersion": "1.0.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@tiptap/extension-bold",
+      "latestVersion": "3.31.3",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "del-cli",
+      "latestVersion": "7.0.0",
+      "dormancyAtThreshold": {
+        "180": 346,
+        "270": 346,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@tiptap/starter-kit",
+      "latestVersion": "3.31.3",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "react-leaflet",
+      "latestVersion": "5.0.0",
+      "dormancyAtThreshold": {
+        "180": 655,
+        "270": 655,
+        "365": 655,
+        "450": 655,
+        "545": 655,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@hapi/bourne",
+      "latestVersion": "4.0.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "moment",
+      "latestVersion": "2.30.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "expo-modules-core",
+      "latestVersion": "57.0.18",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "os-locale",
+      "latestVersion": "8.0.0",
+      "dormancyAtThreshold": {
+        "180": 1504,
+        "270": 1504,
+        "365": 1504,
+        "450": 1504,
+        "545": 1504,
+        "730": 1504
+      },
+      "majorJumpAtThreshold": {
+        "1": 2,
+        "2": 2,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": [
+        "bcoe",
+        "nexdrew"
+      ]
+    },
+    {
+      "name": "@react-navigation/elements",
+      "latestVersion": "2.9.40",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "url-loader",
+      "latestVersion": "4.1.1",
+      "dormancyAtThreshold": {
+        "180": 184,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "bplist-creator",
+      "latestVersion": "0.3.0",
+      "dormancyAtThreshold": {
+        "180": 1586,
+        "270": 1586,
+        "365": 1586,
+        "450": 1586,
+        "545": 1586,
+        "730": 1586
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@swc/jest",
+      "latestVersion": "0.2.39",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "jest-each",
+      "latestVersion": "30.5.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "hawk",
+      "latestVersion": "9.0.2",
+      "dormancyAtThreshold": {
+        "180": 700,
+        "270": 700,
+        "365": 700,
+        "450": 700,
+        "545": 700,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [
+        "nargonath",
+        "devinivy",
+        "marsup",
+        "nlf"
+      ],
+      "maintainerRemoved": [
+        "hueniverse"
+      ]
+    },
+    {
+      "name": "@aws-sdk/client-s3",
+      "latestVersion": "3.1131.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@types/d3-color",
+      "latestVersion": "3.1.3",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 2,
+        "2": 2,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "babel-plugin-transform-es2015-modules-amd",
+      "latestVersion": "6.24.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@grpc/proto-loader",
+      "latestVersion": "0.8.1",
+      "dormancyAtThreshold": {
+        "180": 290,
+        "270": 290,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@babel/plugin-transform-async-generator-functions",
+      "latestVersion": "8.0.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "parse-json",
+      "latestVersion": "8.3.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "find-babel-config",
+      "latestVersion": "2.1.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@types/cross-spawn",
+      "latestVersion": "6.0.6",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "vue-component-type-helpers",
+      "latestVersion": "3.3.11",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "mark.js",
+      "latestVersion": "8.11.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "git-url-parse",
+      "latestVersion": "16.1.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@noble/hashes",
+      "latestVersion": "2.4.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@react-stately/select",
+      "latestVersion": "3.10.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@radix-ui/react-use-callback-ref",
+      "latestVersion": "1.1.4",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "http-proxy",
+      "latestVersion": "1.18.1",
+      "dormancyAtThreshold": {
+        "180": 243,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "typedarray.prototype.slice",
+      "latestVersion": "1.0.5",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "decompress-tar",
+      "latestVersion": "4.1.1",
+      "dormancyAtThreshold": {
+        "180": 429,
+        "270": 429,
+        "365": 429,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@react-stately/datepicker",
+      "latestVersion": "3.17.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "moo-color",
+      "latestVersion": "2.0.0",
+      "dormancyAtThreshold": {
+        "180": 1459,
+        "270": 1459,
+        "365": 1459,
+        "450": 1459,
+        "545": 1459,
+        "730": 1459
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "object-assign",
+      "latestVersion": "4.1.1",
+      "dormancyAtThreshold": {
+        "180": 259,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [
+        "gaearon"
+      ],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "postcss-image-set-function",
+      "latestVersion": "8.0.1",
+      "dormancyAtThreshold": {
+        "180": 235,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "joi",
+      "latestVersion": "18.2.9",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "lighthouse-logger",
+      "latestVersion": "2.0.2",
+      "dormancyAtThreshold": {
+        "180": 736,
+        "270": 736,
+        "365": 736,
+        "450": 736,
+        "545": 736,
+        "730": 736
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@esbuild/android-arm64",
+      "latestVersion": "0.28.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@types/serve-index",
+      "latestVersion": "1.9.4",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "tailwind-variants",
+      "latestVersion": "3.3.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "is-function",
+      "latestVersion": "1.0.2",
+      "dormancyAtThreshold": {
+        "180": 2255,
+        "270": 2255,
+        "365": 2255,
+        "450": 2255,
+        "545": 2255,
+        "730": 2255
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@types/crypto-js",
+      "latestVersion": "4.2.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@aws-sdk/client-sso",
+      "latestVersion": "3.1131.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "imagemin",
+      "latestVersion": "9.0.1",
+      "dormancyAtThreshold": {
+        "180": 306,
+        "270": 306,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": [
+        "nothingismagick",
+        "kevva",
+        "1000ch",
+        "xhmikosr",
+        "shinnn"
+      ]
+    },
+    {
+      "name": "node-xlsx",
+      "latestVersion": "0.24.0",
+      "dormancyAtThreshold": {
+        "180": 326,
+        "270": 326,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "babel-plugin-syntax-decorators",
+      "latestVersion": "6.13.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "stack-generator",
+      "latestVersion": "2.0.10",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "postcss-loader",
+      "latestVersion": "8.2.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [
+        "15000621931",
+        "ev1stensberg",
+        "__hai"
+      ],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@trpc/client",
+      "latestVersion": "11.18.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "use-debounce",
+      "latestVersion": "10.1.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "video.js",
+      "latestVersion": "8.24.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "dot",
+      "latestVersion": "1.1.3",
+      "dormancyAtThreshold": {
+        "180": 929,
+        "270": 929,
+        "365": 929,
+        "450": 929,
+        "545": 929,
+        "730": 929
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@intlify/shared",
+      "latestVersion": "11.4.10",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@rollup/rollup-linux-powerpc64le-gnu",
+      "latestVersion": "4.45.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "axios",
+      "latestVersion": "1.20.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "gonzales-pe",
+      "latestVersion": "4.3.0",
+      "dormancyAtThreshold": {
+        "180": 374,
+        "270": 374,
+        "365": 374,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@cucumber/tag-expressions",
+      "latestVersion": "11.0.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "ant-design-vue",
+      "latestVersion": "4.2.6",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "postcss",
+      "latestVersion": "8.5.28",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@babel/plugin-transform-react-jsx",
+      "latestVersion": "8.0.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "usehooks-ts",
+      "latestVersion": "3.1.1",
+      "dormancyAtThreshold": {
+        "180": 307,
+        "270": 307,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@fortawesome/free-brands-svg-icons",
+      "latestVersion": "7.3.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "gulp-concat",
+      "latestVersion": "2.6.1",
+      "dormancyAtThreshold": {
+        "180": 509,
+        "270": 509,
+        "365": 509,
+        "450": 509,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [
+        "contra"
+      ],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@algolia/transporter",
+      "latestVersion": "4.26.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [
+        "fluf"
+      ],
+      "maintainerRemoved": [
+        "millotp"
+      ]
+    },
+    {
+      "name": "@aws-sdk/credential-provider-node",
+      "latestVersion": "3.972.83",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "qjobs",
+      "latestVersion": "1.2.0",
+      "dormancyAtThreshold": {
+        "180": 551,
+        "270": 551,
+        "365": 551,
+        "450": 551,
+        "545": 551,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@svgr/babel-plugin-add-jsx-attribute",
+      "latestVersion": "8.0.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "array-buffer-byte-length",
+      "latestVersion": "1.0.2",
+      "dormancyAtThreshold": {
+        "180": 320,
+        "270": 320,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@radix-ui/react-checkbox",
+      "latestVersion": "1.3.11",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@react-spring/types",
+      "latestVersion": "10.1.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "abstract-logging",
+      "latestVersion": "2.0.1",
+      "dormancyAtThreshold": {
+        "180": 339,
+        "270": 339,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "chromium-bidi",
+      "latestVersion": "17.0.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@firebase/storage-types",
+      "latestVersion": "0.8.5",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@pnpm/types",
+      "latestVersion": "1102.1.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "kareem",
+      "latestVersion": "3.4.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "get-pkg-repo",
+      "latestVersion": "5.0.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@langchain/openai",
+      "latestVersion": "1.5.13",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "json5",
+      "latestVersion": "2.2.3",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "extendable-error",
+      "latestVersion": "0.1.7",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@ethersproject/rlp",
+      "latestVersion": "5.8.0",
+      "dormancyAtThreshold": {
+        "180": 922,
+        "270": 922,
+        "365": 922,
+        "450": 922,
+        "545": 922,
+        "730": 922
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "jsdom",
+      "latestVersion": "30.0.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "spdy-transport",
+      "latestVersion": "3.0.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "jest-get-type",
+      "latestVersion": "29.6.3",
+      "dormancyAtThreshold": {
+        "180": 187,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@graphql-codegen/client-preset",
+      "latestVersion": "6.2.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "jsbi",
+      "latestVersion": "4.3.2",
+      "dormancyAtThreshold": {
+        "180": 1078,
+        "270": 1078,
+        "365": 1078,
+        "450": 1078,
+        "545": 1078,
+        "730": 1078
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@tiptap/extension-text-align",
+      "latestVersion": "3.31.3",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@turf/invariant",
+      "latestVersion": "7.4.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": [
+        "smallsaucepan"
+      ]
+    },
+    {
+      "name": "chromedriver",
+      "latestVersion": "153.0.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@next/eslint-plugin-next",
+      "latestVersion": "16.3.5",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@babel/plugin-syntax-nullish-coalescing-operator",
+      "latestVersion": "7.8.3",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@rollup/rollup-linux-arm64-musl",
+      "latestVersion": "4.63.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "react-native-modal",
+      "latestVersion": "14.0.0-rc.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@jest/environment",
+      "latestVersion": "30.5.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "pg-pool",
+      "latestVersion": "3.14.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "react-focus-lock",
+      "latestVersion": "2.13.7",
+      "dormancyAtThreshold": {
+        "180": 295,
+        "270": 295,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "react-datepicker",
+      "latestVersion": "9.1.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@firebase/messaging",
+      "latestVersion": "0.13.3",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@mui/core-downloads-tracker",
+      "latestVersion": "9.4.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "omggif",
+      "latestVersion": "1.0.10",
+      "dormancyAtThreshold": {
+        "180": 572,
+        "270": 572,
+        "365": 572,
+        "450": 572,
+        "545": 572,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@jridgewell/resolve-uri",
+      "latestVersion": "3.1.2",
+      "dormancyAtThreshold": {
+        "180": 314,
+        "270": 314,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "toposort",
+      "latestVersion": "2.0.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "ts-loader",
+      "latestVersion": "9.6.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "web3-eth-abi",
+      "latestVersion": "4.4.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "run-queue",
+      "latestVersion": "2.0.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@types/sanitize-html",
+      "latestVersion": "2.16.1",
+      "dormancyAtThreshold": {
+        "180": 305,
+        "270": 305,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "vfile-location",
+      "latestVersion": "5.0.3",
+      "dormancyAtThreshold": {
+        "180": 328,
+        "270": 328,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "decompress-targz",
+      "latestVersion": "4.1.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@salesforce/core",
+      "latestVersion": "9.1.11",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "promzard",
+      "latestVersion": "4.0.0",
+      "dormancyAtThreshold": {
+        "180": 207,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": [
+        "gar",
+        "hashtagchris"
+      ]
+    },
+    {
+      "name": "tsconfig-paths-webpack-plugin",
+      "latestVersion": "4.2.0",
+      "dormancyAtThreshold": {
+        "180": 493,
+        "270": 493,
+        "365": 493,
+        "450": 493,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [
+        "timmotoo",
+        "rassva"
+      ],
+      "maintainerRemoved": [
+        "jontem"
+      ]
+    },
+    {
+      "name": "tslib",
+      "latestVersion": "2.8.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "babel-preset-jest",
+      "latestVersion": "30.5.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@octokit/plugin-paginate-rest",
+      "latestVersion": "15.0.0",
+      "dormancyAtThreshold": {
+        "180": 275,
+        "270": 275,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [
+        "gr2m",
+        "wolfy1339"
+      ],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@smithy/util-middleware",
+      "latestVersion": "4.5.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "require-package-name",
+      "latestVersion": "2.0.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "jayson",
+      "latestVersion": "4.3.0",
+      "dormancyAtThreshold": {
+        "180": 247,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@mswjs/interceptors",
+      "latestVersion": "0.42.6",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "react-intl",
+      "latestVersion": "10.2.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "v8-compile-cache-lib",
+      "latestVersion": "3.0.1",
+      "dormancyAtThreshold": {
+        "180": 392,
+        "270": 392,
+        "365": 392,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@sindresorhus/slugify",
+      "latestVersion": "3.0.1",
+      "dormancyAtThreshold": {
+        "180": 355,
+        "270": 355,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "tiny-glob",
+      "latestVersion": "0.2.9",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "sql-formatter",
+      "latestVersion": "15.8.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@react-aria/datepicker",
+      "latestVersion": "3.17.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@jimp/utils",
+      "latestVersion": "1.6.1",
+      "dormancyAtThreshold": {
+        "180": 575,
+        "270": 575,
+        "365": 575,
+        "450": 575,
+        "545": 575,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "num2fraction",
+      "latestVersion": "1.2.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "markdown-it-container",
+      "latestVersion": "4.0.0",
+      "dormancyAtThreshold": {
+        "180": 1281,
+        "270": 1281,
+        "365": 1281,
+        "450": 1281,
+        "545": 1281,
+        "730": 1281
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "is-regexp",
+      "latestVersion": "3.1.0",
+      "dormancyAtThreshold": {
+        "180": 207,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "metro-react-native-babel-preset",
+      "latestVersion": "0.77.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "object.omit",
+      "latestVersion": "3.0.0",
+      "dormancyAtThreshold": {
+        "180": 312,
+        "270": 312,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "cache-content-type",
+      "latestVersion": "2.1.0",
+      "dormancyAtThreshold": {
+        "180": 276,
+        "270": 276,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "write-json-file",
+      "latestVersion": "7.0.0",
+      "dormancyAtThreshold": {
+        "180": 415,
+        "270": 415,
+        "365": 415,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "tiny-case",
+      "latestVersion": "1.0.3",
+      "dormancyAtThreshold": {
+        "180": 440,
+        "270": 440,
+        "365": 440,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "for-in",
+      "latestVersion": "1.0.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@firebase/auth",
+      "latestVersion": "1.13.6",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@cosmjs/encoding",
+      "latestVersion": "0.39.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@kwsites/promise-deferred",
+      "latestVersion": "1.1.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "thread-loader",
+      "latestVersion": "4.0.4",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "lodash.isempty",
+      "latestVersion": "4.4.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@types/react-redux",
+      "latestVersion": "7.1.34",
+      "dormancyAtThreshold": {
+        "180": 286,
+        "270": 286,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 2,
+        "2": 2,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "p-each-series",
+      "latestVersion": "3.0.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "bootstrap-icons",
+      "latestVersion": "1.13.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "csscolorparser",
+      "latestVersion": "1.0.3",
+      "dormancyAtThreshold": {
+        "180": 1179,
+        "270": 1179,
+        "365": 1179,
+        "450": 1179,
+        "545": 1179,
+        "730": 1179
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@nx/nx-linux-x64-gnu",
+      "latestVersion": "23.2.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@types/jest",
+      "latestVersion": "30.0.0",
+      "dormancyAtThreshold": {
+        "180": 236,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@algolia/cache-common",
+      "latestVersion": "4.26.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [
+        "fluf"
+      ],
+      "maintainerRemoved": [
+        "millotp"
+      ]
+    },
+    {
+      "name": "@nrwl/devkit",
+      "latestVersion": "19.8.4",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "babel-core",
+      "latestVersion": "6.26.3",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@typescript-eslint/eslint-plugin",
+      "latestVersion": "8.70.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "safe-stable-stringify",
+      "latestVersion": "2.5.0",
+      "dormancyAtThreshold": {
+        "180": 524,
+        "270": 524,
+        "365": 524,
+        "450": 524,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@expo/config-plugins",
+      "latestVersion": "57.0.9",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "klaw",
+      "latestVersion": "4.1.0",
+      "dormancyAtThreshold": {
+        "180": 468,
+        "270": 468,
+        "365": 468,
+        "450": 468,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "vite",
+      "latestVersion": "8.3.0",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "camelize",
+      "latestVersion": "1.0.1",
+      "dormancyAtThreshold": {
+        "180": 3018,
+        "270": 3018,
+        "365": 3018,
+        "450": 3018,
+        "545": 3018,
+        "730": 3018
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [
+        "ljharb"
+      ],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "fresh",
+      "latestVersion": "0.5.2",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@stoplight/json",
+      "latestVersion": "3.21.7",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "vfile",
+      "latestVersion": "6.0.3",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "clone-regexp",
+      "latestVersion": "3.0.0",
+      "dormancyAtThreshold": {
+        "180": 723,
+        "270": 723,
+        "365": 723,
+        "450": 723,
+        "545": 723,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": 1,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "cssfontparser",
+      "latestVersion": "1.2.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@webpack-cli/configtest",
+      "latestVersion": "3.0.1",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    },
+    {
+      "name": "@types/d3-drag",
+      "latestVersion": "3.0.7",
+      "dormancyAtThreshold": {
+        "180": null,
+        "270": null,
+        "365": null,
+        "450": null,
+        "545": null,
+        "730": null
+      },
+      "majorJumpAtThreshold": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "maintainerAdded": [],
+      "maintainerRemoved": []
+    }
+  ]
+}

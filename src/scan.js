@@ -1,6 +1,7 @@
 import { getDirectDependencies } from "./parsePackageJson.js";
 import { findTyposquats } from "./typosquat.js";
 import { scanInstallScripts } from "./installScriptScan.js";
+import { scanVersionAnomalies } from "./versionAnomalyScan.js";
 
 function describeInstallScriptRisk(result) {
   if (!result || result.status === "not-found") return "not found on registry";
@@ -19,6 +20,31 @@ function describeInstallScriptRisk(result) {
       return `⚠ ${scriptName}: ${categories}`;
     })
     .join("; ");
+}
+
+function describeVersionAnomaly(result) {
+  if (!result || result.status !== "ok") return "-";
+
+  const parts = [];
+  if (result.dormancy) {
+    parts.push(`⚠ dormant ${result.dormancy.gapDays}d then published (prev ${result.dormancy.previousVersion})`);
+  }
+  if (result.majorJump) {
+    const ghNote =
+      result.github.checked && !result.github.found
+        ? ", no matching GitHub release found"
+        : "";
+    parts.push(`⚠ major jump ${result.majorJump.previousVersion} → ${result.resolvedVersion}${ghNote}`);
+  }
+  if (result.maintainerChange) {
+    const { added, removed } = result.maintainerChange;
+    const bits = [];
+    if (added.length > 0) bits.push(`+${added.join(",+")}`);
+    if (removed.length > 0) bits.push(`-${removed.join(",-")}`);
+    parts.push(`⚠ maintainers changed (${bits.join(" ")})`);
+  }
+
+  return parts.length > 0 ? parts.join("; ") : "-";
 }
 
 export async function scanCommand(packageJsonPath) {
@@ -40,8 +66,11 @@ export async function scanCommand(packageJsonPath) {
 
   const typosquatFlags = findTyposquats(deps.map((d) => d.name));
 
-  console.log("Checking install scripts via the npm registry...");
-  const installScriptResults = await scanInstallScripts(deps);
+  console.log("Checking install scripts and version/maintainer history via the npm registry...");
+  const [installScriptResults, versionAnomalyResults] = await Promise.all([
+    scanInstallScripts(deps),
+    scanVersionAnomalies(deps),
+  ]);
 
   console.table(
     deps.map(({ name, versionRange, type }) => {
@@ -54,6 +83,7 @@ export async function scanCommand(packageJsonPath) {
           ? `possible typo of "${typosquatFlag.closestMatch}" (distance ${typosquatFlag.distance})`
           : "-",
         "Install Script Risk": describeInstallScriptRisk(installScriptResults.get(name)),
+        "Version/Maintainer Anomaly": describeVersionAnomaly(versionAnomalyResults.get(name)),
       };
     })
   );
@@ -81,12 +111,21 @@ export async function scanCommand(packageJsonPath) {
     }
   }
 
-  const flaggedCount = [...installScriptResults.values()].filter(
+  const installScriptFlagCount = [...installScriptResults.values()].filter(
     (r) => r.status === "ok" && Object.keys(r.flags).length > 0
   ).length;
-  if (flaggedCount > 0) {
+  if (installScriptFlagCount > 0) {
     console.log(
-      `\n${flaggedCount} package(s) flagged for install-script red flags. Review closely — this is a heuristic, not proof.`
+      `\n${installScriptFlagCount} package(s) flagged for install-script red flags. Review closely — this is a heuristic, not proof.`
+    );
+  }
+
+  const versionAnomalyFlagCount = [...versionAnomalyResults.values()].filter(
+    (r) => r.status === "ok" && (r.dormancy || r.majorJump || r.maintainerChange)
+  ).length;
+  if (versionAnomalyFlagCount > 0) {
+    console.log(
+      `\n${versionAnomalyFlagCount} package(s) flagged for version/maintainer anomalies. Review closely — this is a heuristic, not proof.`
     );
   }
 }
